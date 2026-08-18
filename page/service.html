@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="VEXO HVAC professional service details - expert heating, cooling, and indoor air quality services across Dallas-Fort Worth." />
+  <title>HVAC Service | VEXO HVAC</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="header-top">
+      <div class="container header-top-inner">
+        <span class="header-top-text">24/7 Emergency Service • Licensed & Insured • Dallas-Fort Worth</span>
+        <a href="tel:+15551234567" class="header-top-phone">Call (555) 123-4567</a>
+      </div>
+    </div>
+    <div class="container header-main">
+      <a href="../index.html" class="brand" aria-label="VEXO HVAC Home">
+        <span class="brand-mark">V</span>
+        <span class="brand-text"><strong>VEXO</strong> <span>HVAC</span></span>
+      </a>
+      <nav class="nav" aria-label="Primary Navigation">
+        <ul class="nav-list" role="list">
+          <li><a href="../index.html" class="nav-link">Home</a></li>
+          <li><a href="services.html" class="nav-link is-active" aria-current="page">Services</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="reviews.html" class="nav-link">Reviews</a></li>
+          <li><a href="service-areas.html" class="nav-link">Service Areas</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="quote.html" class="btn btn-primary">Get Free Estimate</a>
+        <button type="button" class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMobile">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="nav-mobile" id="navMobile" hidden>
+      <ul class="nav-mobile-list" role="list">
+        <li><a href="../index.html" class="nav-mobile-link">Home</a></li>
+        <li><a href="services.html" class="nav-mobile-link is-active">Services</a></li>
+        <li><a href="about.html" class="nav-mobile-link">About</a></li>
+        <li><a href="gallery.html" class="nav-mobile-link">Gallery</a></li>
+        <li><a href="reviews.html" class="nav-mobile-link">Reviews</a></li>
+        <li><a href="service-areas.html" class="nav-mobile-link">Service Areas</a></li>
+        <li><a href="contact.html" class="nav-mobile-link">Contact</a></li>
+        <li><a href="quote.html" class="btn btn-primary btn-block">Get Free Estimate</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb-wrap">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="services.html">Services</a>
+          <span aria-hidden="true">/</span>
+          <span id="breadcrumbCurrent" aria-current="page">Service</span>
+        </nav>
+      </div>
+    </div>
+
+    <!-- SERVICE HERO -->
+    <section class="page-hero service-detail-hero" id="serviceHero">
+      <div class="container">
+        <div class="service-hero-grid">
+          <div class="service-hero-content">
+            <span class="eyebrow" id="serviceEyebrow">VEXO HVAC Professional Service</span>
+            <h1 class="page-hero-title" id="serviceTitle">HVAC Service</h1>
+            <p class="page-hero-desc" id="serviceShort">Professional heating and cooling service by licensed technicians across Dallas-Fort Worth.</p>
+            <div class="hero-actions">
+              <a href="quote.html" class="btn btn-primary" id="heroPrimaryCta">Request a Quote</a>
+              <a href="tel:+15551234567" class="btn btn-secondary">Call (555) 123-4567</a>
+            </div>
+            <div class="hero-meta" id="serviceMeta">
+              <span>Licensed & Insured</span><span class="dot">•</span><span>Transparent Pricing</span><span class="dot">•</span><span>DFW Coverage</span>
+            </div>
+          </div>
+          <div class="service-hero-media">
+            <div class="service-hero-img" id="serviceImageWrap">
+              <img id="serviceImage" src="../assets/images/services/hvac-service.jpg" alt="VEXO HVAC technician servicing HVAC system" loading="eager" onerror="this.style.display='none'" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OVERVIEW -->
+    <section class="section service-overview" id="overviewSection">
+      <div class="container">
+        <div class="service-detail-layout">
+          <div class="service-detail-main">
+            <span class="eyebrow">Service Overview</span>
+            <h2 class="section-title" id="overviewTitle">Professional Service You Can Trust</h2>
+            <div class="service-long-desc" id="overviewDesc"></div>
+
+            <div class="service-included">
+              <h3>What's Included</h3>
+              <ul class="check-list" id="includedList" role="list"></ul>
+            </div>
+
+            <div class="service-benefits">
+              <h3>Benefits</h3>
+              <div class="benefits-grid" id="benefitsGrid"></div>
+            </div>
+          </div>
+
+          <aside class="service-detail-side">
+            <div class="side-card side-card-quote">
+              <h3>Schedule This Service</h3>
+              <p>Get a free estimate and clear options before any work begins.</p>
+              <a href="quote.html" class="btn btn-primary btn-block" id="sideQuoteLink">Request a Quote</a>
+              <a href="contact.html" class="btn btn-secondary btn-block">Contact Us</a>
+              <a href="tel:+15551234567" class="side-phone">Emergency: (555) 123-4567</a>
+            </div>
+
+            <div class="side-card side-card-list">
+              <h4>Popular Services</h4>
+              <ul class="side-links" role="list">
+                <li><a href="service.html?service=ac-repair">AC Repair</a></li>
+                <li><a href="service.html?service=ac-installation">AC Installation</a></li>
+                <li><a href="service.html?service=ac-maintenance">AC Maintenance</a></li>
+                <li><a href="service.html?service=heating">Heating Services</a></li>
+                <li><a href="service.html?service=hvac-replacement">HVAC Replacement</a></li>
+                <li><a href="service.html?service=indoor-air-quality">Indoor Air Quality</a></li>
+                <li><a href="service.html?service=emergency-hvac">Emergency HVAC</a></li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section process" id="processSection">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Our Process</span>
+          <h2 class="section-title">How We Deliver Quality HVAC Service</h2>
+        </div>
+        <div class="process-steps" id="processSteps"></div>
+      </div>
+    </section>
+
+    <!-- EMERGENCY / STANDARD CTA -->
+    <section class="section emergency-cta" id="ctaSection">
+      <div class="container">
+        <div class="emergency-card" id="emergencyCard">
+          <div class="emergency-card-content">
+            <span class="eyebrow eyebrow-light" id="ctaEyebrow">Need HVAC Help?</span>
+            <h2 class="emergency-title" id="ctaTitle">Professional HVAC Service Across DFW</h2>
+            <p class="emergency-desc" id="ctaDesc">Our licensed technicians provide fast diagnostics, clear recommendations, and quality workmanship. Serving Dallas, Plano, Frisco, Irving and surrounding areas.</p>
+            <ul class="emergency-list" role="list" id="ctaList"></ul>
+          </div>
+          <div class="emergency-card-actions">
+            <a href="tel:+15551234567" class="btn btn-primary btn-large" id="ctaPhoneBtn">Call (555) 123-4567</a>
+            <a href="quote.html" class="btn btn-ghost btn-large" id="ctaQuoteBtn">Request This Service</a>
+            <p class="emergency-note">No pressure sales — you approve the solution before work begins.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RELATED SERVICES -->
+    <section class="section related-services">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Related Services</span>
+          <h2 class="section-title">You May Also Need</h2>
+        </div>
+        <div class="services-grid" id="relatedGrid"></div>
+      </div>
+    </section>
+
+    <!-- SERVICE AREAS CTA -->
+    <section class="section service-areas-cta">
+      <div class="container">
+        <div class="areas-card">
+          <div class="areas-card-text">
+            <h2>Serving Homeowners & Businesses Across DFW</h2>
+            <p>VEXO proudly serves our local communities with professional HVAC care. View our full coverage area.</p>
+          </div>
+          <div class="areas-card-action">
+            <a href="service-areas.html" class="btn btn-primary">View Service Areas</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FALLBACK / NOT FOUND -->
+    <section class="section fallback-section" id="fallbackSection" hidden>
+      <div class="container">
+        <div class="fallback-card">
+          <span class="eyebrow">VEXO HVAC Services</span>
+          <h2 class="section-title" id="fallbackTitle">Explore Our HVAC Services</h2>
+          <p class="section-desc" id="fallbackDesc">Select a service to view detailed information, what's included, and how we can help.</p>
+          <div class="fallback-actions">
+            <a href="services.html" class="btn btn-primary">View All Services</a>
+            <a href="quote.html" class="btn btn-secondary">Get Free Estimate</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="section final-cta">
+      <div class="container">
+        <div class="final-cta-inner">
+          <h2 id="finalCtaTitle">Ready to Schedule HVAC Service?</h2>
+          <p>Get a free, no-obligation estimate or talk to a VEXO specialist today.</p>
+          <div class="final-cta-actions">
+            <a href="quote.html" class="btn btn-primary btn-large" id="finalQuoteBtn">Request a Quote</a>
+            <a href="contact.html" class="btn btn-secondary btn-large">Contact Us</a>
+            <a href="tel:+15551234567" class="btn btn-ghost btn-large">Call (555) 123-4567</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="brand" aria-label="VEXO HVAC Home">
+            <span class="brand-mark">V</span>
+            <span class="brand-text"><strong>VEXO</strong> <span>HVAC</span></span>
+          </a>
+          <p class="footer-desc">Professional HVAC services in Dallas-Fort Worth. Licensed, insured, and committed to quality workmanship since 2010.</p>
+          <div class="footer-contact">
+            <a href="tel:+15551234567">(555) 123-4567</a>
+            <a href="mailto:info@vexohvac.com">info@vexohvac.com</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-title">Services</h4>
+          <ul class="footer-links" role="list">
+            <li><a href="service.html?service=ac-installation">AC Installation</a></li>
+            <li><a href="service.html?service=ac-repair">AC Repair</a></li>
+            <li><a href="service.html?service=ac-maintenance">Maintenance</a></li>
+            <li><a href="service.html?service=heating">Heating Services</a></li>
+            <li><a href="service.html?service=indoor-air-quality">Indoor Air Quality</a></li>
+            <li><a href="service.html?service=emergency-hvac">Emergency HVAC</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-title">Company</h4>
+          <ul class="footer-links" role="list">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="service-areas.html">Service Areas</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-title">Get Help</h4>
+          <ul class="footer-links" role="list">
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="quote.html">Get Free Estimate</a></li>
+            <li><a href="tel:+15551234567">24/7 Emergency: (555) 123-4567</a></li>
+          </ul>
+          <div class="footer-badge"><span>Licensed & Insured • TX LIC #VEXO-2026</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Vexo HVAC LLC. All rights reserved. Dallas, TX.</p>
+        <p>Professional HVAC Management • Built for Texas Heat & Cold</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="../js/app.js"></script>
+  <script>
+  (function() {
+    'use strict';
+
+    var services = {
+      "ac-installation": {
+        title: "AC Installation",
+        eyebrow: "Professional AC Installation",
+        shortDesc: "Correctly sized, energy-efficient AC systems installed by licensed technicians for reliable comfort in Dallas-Fort Worth.",
+        longDesc: "VEXO provides professional air conditioning installation for homes and businesses. We perform load calculations, evaluate ductwork, and recommend efficient options that fit your space and budget. Every installation includes proper setup, testing, and a clear walkthrough.",
+        image: "../assets/images/services/ac-installation.jpg",
+        alt: "VEXO HVAC technician installing AC unit",
+        benefits: [
+          { title: "Proper Sizing", text: "Load calculations ensure efficient cooling without short cycling." },
+          { title: "Energy Efficiency", text: "Modern SEER2 systems to help reduce energy use." },
+          { title: "Clean Installation", text: "Respectful of your home with cleanup and system testing." },
+          { title: "Warranty Backed", text: "Workmanship warranty plus manufacturer warranty registration." }
+        ],
+        included: ["Home assessment and load calculation", "System sizing & efficiency options", "Ductwork inspection", "Professional installation & line-set work", "Thermostat setup and testing", "Cleanup and homeowner walkthrough"],
+        process: [{ n: "01", t: "Consultation", d: "We assess your space, ductwork, and cooling needs." }, { n: "02", t: "Recommendation", d: "Clear options with efficiency and budget in mind." }, { n: "03", t: "Installation", d: "Licensed install with permits where required." }, { n: "04", t: "Testing & Walkthrough", d: "Performance testing and guidance on use." }],
+        cta: { eyebrow: "New AC Needed?", title: "Professional AC Installation Across DFW", desc: "Get a correctly sized system installed right the first time.", list: ["Upfront options", "No pressure sales", "Licensed & insured install"] },
+        related: ["ac-repair", "hvac-replacement", "ac-maintenance"]
+      },
+      "ac-repair": {
+        title: "AC Repair",
+        eyebrow: "Fast AC Repair Service",
+        shortDesc: "Fast, honest AC repair for no-cool, weak cooling, noises, and leaks. Same-day diagnostics available across DFW.",
+        longDesc: "When your AC is not cooling, VEXO delivers prompt diagnostics and transparent repair recommendations. We service major brands and common failures including refrigerant leaks, capacitor and fan motor issues, compressor problems, frozen coils, and electrical faults.",
+        image: "../assets/images/services/ac-repair.jpg",
+        alt: "HVAC technician diagnosing air conditioner",
+        benefits: [
+          { title: "Fast Diagnostics", text: "Quick arrival windows and clear troubleshooting." },
+          { title: "Honest Recommendations", text: "Repair vs replace guidance based on condition." },
+          { title: "Stocked Trucks", text: "Common parts on hand to reduce return trips." },
+          { title: "System Testing", text: "Post-repair testing for reliable operation." }
+        ],
+        included: ["System inspection and safety check", "Refrigerant and electrical diagnostics", "Airflow and coil inspection", "Repair estimate before work", "Professional repair and testing", "Performance verification"],
+        process: [{ n: "01", t: "Contact VEXO", d: "Tell us symptoms and system type." }, { n: "02", t: "Schedule", d: "Same-day window when available." }, { n: "03", t: "Diagnose", d: "We identify root cause, not just symptoms." }, { n: "04", t: "Repair", d: "Approved repair with testing." }],
+        cta: { eyebrow: "AC Not Cooling?", title: "Same-Day AC Repair in Dallas-Fort Worth", desc: "We prioritize no-cool calls and keep you informed from dispatch to completion.", list: ["24/7 emergency dispatch", "Clear pricing before work", "Licensed technicians"] },
+        related: ["ac-maintenance", "ac-installation", "emergency-hvac"]
+      },
+      "ac-maintenance": {
+        title: "AC Maintenance",
+        eyebrow: "Preventive AC Maintenance",
+        shortDesc: "Seasonal tune-ups to prevent breakdowns, keep efficiency up, and extend equipment life.",
+        longDesc: "Regular AC maintenance helps prevent costly breakdowns in peak Texas heat. VEXO performs coil cleaning, filter checks, electrical tightening, refrigerant checks, and performance testing to keep your system running reliably.",
+        image: "../assets/images/services/ac-maintenance.jpg",
+        alt: "Technician performing AC maintenance",
+        benefits: [
+          { title: "Fewer Breakdowns", text: "Catch small issues before they become major repairs." },
+          { title: "Better Efficiency", text: "Clean coils and proper airflow support efficiency." },
+          { title: "Longer Life", text: "Routine care helps extend system lifespan." },
+          { title: "Comfort Consistency", text: "More consistent cooling throughout your home." }
+        ],
+        included: ["Coil and filter inspection", "Refrigerant level check", "Electrical connection inspection", "Thermostat calibration", "Performance and airflow testing", "Maintenance recommendations"],
+        process: [{ n: "01", t: "Schedule", d: "Choose spring or fall maintenance window." }, { n: "02", t: "Inspect", d: "Comprehensive system inspection." }, { n: "03", t: "Tune-Up", d: "Cleaning, tightening, and testing." }, { n: "04", t: "Report", d: "Findings and next steps explained." }],
+        cta: { eyebrow: "Stay Ahead of Heat", title: "Preventive Maintenance for Reliable Cooling", desc: "A simple tune-up now helps prevent emergency calls later.", list: ["Seasonal checklists", "Clear reports", "Reminder service"] },
+        related: ["ac-repair", "indoor-air-quality", "ac-installation"]
+      },
+      "heating": {
+        title: "Heating Services",
+        eyebrow: "Heating & Furnace Services",
+        shortDesc: "Furnace and heat pump repair, installation, and safety checks for cold Texas days.",
+        longDesc: "VEXO services gas furnaces and heat pumps including no-heat calls, short cycling, unusual noises, and safety concerns. We focus on safe operation, reliable heating, and clear options for repair or replacement.",
+        image: "../assets/images/services/heating.jpg",
+        alt: "Furnace heating service",
+        benefits: [
+          { title: "Safe Operation", text: "Combustion and carbon monoxide safety checks." },
+          { title: "Reliable Heat", text: "Diagnosis for no-heat and inconsistent heating." },
+          { title: "Efficient Options", text: "Repair or efficient replacement guidance." },
+          { title: "Professional Install", text: "Correct venting and setup when replacement is needed." }
+        ],
+        included: ["Heating system inspection", "Safety and CO check", "Electrical and gas diagnostics", "Repair or replacement options", "Professional repair/installation", "System testing and guidance"],
+        process: [{ n: "01", t: "Contact", d: "Describe heating issue." }, { n: "02", t: "Inspect", d: "Safety and performance inspection." }, { n: "03", t: "Recommend", d: "Clear options explained." }, { n: "04", t: "Complete", d: "Professional service with testing." }],
+        cta: { eyebrow: "No Heat?", title: "Heating Repair & Installation in DFW", desc: "Fast response for no-heat calls with safety-first approach.", list: ["Safety checks included", "Upfront options", "Licensed heating specialists"] },
+        related: ["ac-repair", "hvac-replacement", "ac-maintenance"]
+      },
+      "hvac-replacement": {
+        title: "HVAC Replacement",
+        eyebrow: "HVAC System Replacement",
+        shortDesc: "When repair costs rise, get clear replacement options with proper sizing and professional installation.",
+        longDesc: "If your system is aging, frequently repairing, or inefficient, replacement may be the better investment. VEXO evaluates your current system, ductwork, and home requirements, then provides balanced options without pressure. We handle removal, installation, and disposal.",
+        image: "../assets/images/services/hvac-replacement.jpg",
+        alt: "HVAC system replacement",
+        benefits: [
+          { title: "Right Sizing", text: "Correct size for comfort and efficiency." },
+          { title: "Efficiency Upgrade", text: "Modern systems for improved performance." },
+          { title: "Duct Assessment", text: "Evaluation to avoid airflow issues." },
+          { title: "Complete Service", text: "Removal, install, and cleanup included." }
+        ],
+        included: ["Existing system evaluation", "Ductwork assessment", "Replacement options and comparison", "Professional removal of old system", "New system installation", "Testing and homeowner walkthrough"],
+        process: [{ n: "01", t: "Evaluation", d: "Assess age, condition, and costs." }, { n: "02", t: "Options", d: "Compare repair vs replacement." }, { n: "03", t: "Installation", d: "Licensed install with proper setup." }, { n: "04", t: "Verification", d: "Performance verification and guidance." }],
+        cta: { eyebrow: "Considering Replacement?", title: "Clear HVAC Replacement Guidance", desc: "We help you make an informed decision with honest comparison.", list: ["No pressure recommendations", "Financing guidance available", "Warranty registration"] },
+        related: ["ac-installation", "heating", "ac-maintenance"]
+      },
+      "indoor-air-quality": {
+        title: "Indoor Air Quality",
+        eyebrow: "Indoor Air Quality Solutions",
+        shortDesc: "Filtration, purification, humidity control, and duct inspections for healthier indoor air.",
+        longDesc: "Indoor air quality affects comfort and well-being. VEXO offers media filters, air purifiers, humidity solutions, and duct inspections to reduce dust, allergens, and inconsistent humidity, tailored to your home.",
+        image: "../assets/images/services/air-quality.jpg",
+        alt: "Indoor air quality filter and purifier",
+        benefits: [
+          { title: "Cleaner Air", text: "Filtration options to reduce dust and particles." },
+          { title: "Balanced Humidity", text: "Solutions for dry or overly humid indoor air." },
+          { title: "Odor Reduction", text: "Purification options to help with odors." },
+          { title: "System Protection", text: "Cleaner air helps protect HVAC equipment." }
+        ],
+        included: ["Air quality consultation", "Filter and purifier options", "Humidity assessment", "Duct inspection", "Professional installation", "Maintenance guidance"],
+        process: [{ n: "01", t: "Consult", d: "Discuss concerns like dust or allergies." }, { n: "02", t: "Assess", d: "Evaluate current filtration and ductwork." }, { n: "03", t: "Recommend", d: "Tailored IAQ options." }, { n: "04", t: "Install", d: "Professional install and testing." }],
+        cta: { eyebrow: "Breathe Easier", title: "Indoor Air Quality for DFW Homes", desc: "Improve comfort with cleaner, balanced indoor air.", list: ["Filter upgrades", "Purifier options", "Humidity control"] },
+        related: ["ac-maintenance", "ac-installation", "heating"]
+      },
+      "emergency-hvac": {
+        title: "Emergency HVAC Service",
+        eyebrow: "24/7 Emergency HVAC",
+        shortDesc: "Urgent HVAC service for no-cool and no-heat emergencies across Dallas-Fort Worth.",
+        longDesc: "HVAC emergencies don't follow business hours. VEXO provides 24/7 emergency dispatch for no-cool and no-heat situations. We prioritize urgent calls, communicate arrival windows, and deliver professional diagnostics with clear next steps.",
+        image: "../assets/images/services/emergency.jpg",
+        alt: "Emergency HVAC service truck at night",
+        benefits: [
+          { title: "24/7 Dispatch", text: "Emergency response for urgent failures." },
+          { title: "Prioritized Care", text: "No-cool and no-heat calls prioritized." },
+          { title: "Clear Updates", text: "Status updates from dispatch to arrival." },
+          { title: "Professional Repair", text: "Licensed technicians with stocked trucks." }
+        ],
+        included: ["Emergency call intake", "Rapid dispatch", "Safety and system diagnostics", "Immediate repair options", "Professional emergency repair", "Follow-up recommendations"],
+        process: [{ n: "01", t: "Call", d: "Contact VEXO for emergency service." }, { n: "02", t: "Dispatch", d: "We assign nearest available technician." }, { n: "03", t: "Diagnose", d: "Fast diagnostics on site." }, { n: "04", t: "Restore", d: "Restore comfort with professional repair." }],
+        cta: { eyebrow: "Emergency Service Available", title: "Emergency HVAC Service — Day & Night", desc: "Don't wait in Texas heat or cold. Our team is ready to respond.", list: ["24/7 emergency dispatch", "Same-day when available", "Licensed emergency technicians"] },
+        related: ["ac-repair", "heating", "ac-installation"]
+      },
+      "emergency": {
+        title: "Emergency HVAC Service",
+        eyebrow: "24/7 Emergency HVAC",
+        shortDesc: "Urgent HVAC service for no-cool and no-heat emergencies across Dallas-Fort Worth.",
+        longDesc: "HVAC emergencies don't follow business hours. VEXO provides 24/7 emergency dispatch for no-cool and no-heat situations.",
+        image: "../assets/images/services/emergency.jpg",
+        alt: "Emergency HVAC service",
+        benefits: [
+          { title: "24/7 Dispatch", text: "Emergency response for urgent failures." },
+          { title: "Prioritized Care", text: "No-cool and no-heat calls prioritized." },
+          { title: "Clear Updates", text: "Status updates from dispatch to arrival." },
+          { title: "Professional Repair", text: "Licensed technicians with stocked trucks." }
+        ],
+        included: ["Emergency intake", "Rapid dispatch", "Diagnostics", "Repair options", "Professional repair", "Follow-up"],
+        process: [{ n: "01", t: "Call", d: "Contact VEXO." }, { n: "02", t: "Dispatch", d: "Nearest technician assigned." }, { n: "03", t: "Diagnose", d: "On-site diagnostics." }, { n: "04", t: "Restore", d: "Restore comfort." }],
+        cta: { eyebrow: "Emergency Service Available", title: "Emergency HVAC Service — Day & Night", desc: "Don't wait in Texas heat or cold.", list: ["24/7 dispatch", "Same-day when available", "Licensed technicians"] },
+        related: ["ac-repair", "heating", "ac-installation"]
+      }
+    };
+
+    var params = new URLSearchParams(window.location.search);
+    var serviceId = (params.get('service') || '').toLowerCase().trim();
+    // Normalize common aliases
+    var aliasMap = { "emergency-hvac": "emergency-hvac", "ac-repair": "ac-repair", "ac-installation": "ac-installation", "ac-maintenance": "ac-maintenance", "heating": "heating", "hvac-replacement": "hvac-replacement", "indoor-air-quality": "indoor-air-quality", "air-quality": "indoor-air-quality" };
+    if (aliasMap[serviceId]) serviceId = aliasMap[serviceId];
+
+    var data = services[serviceId];
+
+    function el(id) { return document.getElementById(id); }
+
+    function safeText(node, text) { if (node) node.textContent = text; }
+
+    function renderList(container, items) {
+      if (!container) return;
+      container.innerHTML = '';
+      items.forEach(function(item) {
+        var li = document.createElement('li');
+        var strong = document.createElement('span');
+        strong.textContent = item;
+        li.appendChild(strong);
+        container.appendChild(li);
+      });
+    }
+
+    function renderBenefits(container, benefits) {
+      if (!container) return;
+      container.innerHTML = '';
+      benefits.forEach(function(b) {
+        var div = document.createElement('div');
+        div.className = 'benefit-card';
+        var h4 = document.createElement('h4');
+        h4.textContent = b.title;
+        var p = document.createElement('p');
+        p.textContent = b.text;
+        div.appendChild(h4);
+        div.appendChild(p);
+        container.appendChild(div);
+      });
+    }
+
+    function renderProcess(container, steps) {
+      if (!container) return;
+      container.innerHTML = '';
+      steps.forEach(function(s) {
+        var div = document.createElement('div');
+        div.className = 'process-step';
+        var num = document.createElement('span');
+        num.className = 'process-number';
+        num.textContent = s.n;
+        var h3 = document.createElement('h3');
+        h3.textContent = s.t;
+        var p = document.createElement('p');
+        p.textContent = s.d;
+        div.appendChild(num);
+        div.appendChild(h3);
+        div.appendChild(p);
+        container.appendChild(div);
+      });
+    }
+
+    function renderRelated(container, relatedIds) {
+      if (!container) return;
+      container.innerHTML = '';
+      relatedIds.forEach(function(id) {
+        var svc = services[id];
+        if (!svc) return;
+        var card = document.createElement('article');
+        card.className = 'service-card service-card-small';
+        var h3 = document.createElement('h3');
+        h3.className = 'service-title';
+        h3.textContent = svc.title;
+        var p = document.createElement('p');
+        p.className = 'service-desc';
+        p.textContent = svc.shortDesc;
+        var a = document.createElement('a');
+        a.className = 'service-link';
+        a.href = 'service.html?service=' + id;
+        a.textContent = 'Learn More →';
+        card.appendChild(h3);
+        card.appendChild(p);
+        card.appendChild(a);
+        container.appendChild(card);
+      });
+    }
+
+    if (!data) {
+      // fallback / not found
+      var isEmptyParam =!params.get('service');
+      if (isEmptyParam) {
+        document.title = 'Our HVAC Services | VEXO HVAC';
+        var metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'Explore VEXO HVAC professional services across Dallas-Fort Worth.');
+        safeText(el('breadcrumbCurrent'), 'All Services');
+        var fallback = el('fallbackSection');
+        if (fallback) fallback.hidden = false;
+        // hide main service sections to avoid broken content
+        ['serviceHero','overviewSection','processSection','ctaSection'].forEach(function(id){
+          var sec = el(id);
+          if (sec) sec.hidden = true;
+        });
+      } else {
+        document.title = 'Service Not Found | VEXO HVAC';
+        safeText(el('breadcrumbCurrent'), 'Not Found');
+        var fb = el('fallbackSection');
+        if (fb) fb.hidden = false;
+        safeText(el('fallbackTitle'), 'Service Not Found');
+        safeText(el('fallbackDesc'), 'The service you are looking for does not exist. Explore our professional HVAC services.');
+        ['serviceHero','overviewSection','processSection','ctaSection'].forEach(function(id){
+          var sec = el(id);
+          if (sec) sec.hidden = true;
+        });
+      }
+    } else {
+      // populate dynamic content from predefined data only - no untrusted innerHTML
+      document.title = data.title + ' | VEXO HVAC';
+      var meta = document.querySelector('meta[name="description"]');
+      if (meta) meta.setAttribute('content', data.shortDesc + ' Licensed & insured service in Dallas-Fort Worth.');
+
+      safeText(el('breadcrumbCurrent'), data.title);
+      safeText(el('serviceEyebrow'), data.eyebrow);
+      safeText(el('serviceTitle'), data.title);
+      safeText(el('serviceShort'), data.shortDesc);
+      safeText(el('overviewTitle'), data.title + ' Overview');
+      safeText(el('overviewDesc'), data.longDesc? '' : '');
+      var overviewDescEl = el('overviewDesc');
+      if (overviewDescEl) {
+        overviewDescEl.textContent = data.longDesc;
+      }
+
+      var imgEl = el('serviceImage');
+      if (imgEl) {
+        imgEl.src = data.image;
+        imgEl.alt = data.alt || data.title;
+      }
+
+      // CTAs with service param
+      var quoteLink = 'quote.html?service=' + encodeURIComponent(serviceId);
+      var sideQuote = el('sideQuoteLink');
+      if (sideQuote) sideQuote.href = quoteLink;
+      var heroPrimary = el('heroPrimaryCta');
+      if (heroPrimary) heroPrimary.href = quoteLink;
+      var ctaQuoteBtn = el('ctaQuoteBtn');
+      if (ctaQuoteBtn) ctaQuoteBtn.href = quoteLink;
+      var finalQuoteBtn = el('finalQuoteBtn');
+      if (finalQuoteBtn) finalQuoteBtn.href = quoteLink;
+
+      safeText(el('ctaEyebrow'), data.cta.eyebrow);
+      safeText(el('ctaTitle'), data.cta.title);
+      safeText(el('ctaDesc'), data.cta.desc);
+      safeText(el('finalCtaTitle'), 'Ready for ' + data.title + '?');
+
+      renderList(el('includedList'), data.included);
+      renderList(el('ctaList'), data.cta.list);
+      renderBenefits(el('benefitsGrid'), data.benefits);
+      renderProcess(el('processSteps'), data.process);
+      renderRelated(el('relatedGrid'), data.related);
+
+      // emergency styling
+      if (serviceId.indexOf('emergency')!== -1) {
+        var emergencyCard = el('emergencyCard');
+        if (emergencyCard) emergencyCard.classList.add('is-emergency');
+      }
+    }
+
+    // mobile nav toggle reuse
+    var toggle = document.getElementById('navToggle');
+    var mobile = document.getElementById('navMobile');
+    if (toggle && mobile) {
+      toggle.addEventListener('click', function() {
+        var expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
+        mobile.hidden = expanded;
+      });
+    }
+  })();
+  </script>
+</body>
+</html>
