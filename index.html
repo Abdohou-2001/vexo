@@ -1,6 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><style>
+@font-face {
+  font-family: "Optimistic";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/OptimisticAI_VF_Optimized.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Optimistic Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/OptimisticMono_W_TextRegular.woff2") format("woff2");
+}
+:where(html) {
+  font-family: "Optimistic", system-ui, sans-serif;
+}
+:where(code, pre, kbd, samp) {
+  font-family: "Optimistic Mono", ui-monospace, monospace;
+}
+</style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vexo HVAC | Trusted HVAC Experts in Dallas, TX - 24/7 Emergency Service</title>
@@ -12,30 +33,352 @@
 <link rel="stylesheet" href="./css/components.css">
 <link rel="stylesheet" href="./css/responsive.css">
 <style>
-/* HERO VIDEO - Premium integration, minimal override */
-.hero-visual{isolation:isolate}
-.hero-img-wrap{position:relative;overflow:hidden;isolation:isolate;background:#0B1A33}
-.hero-video{
-  position:absolute;inset:0;
-  width:100%;height:100%;
-  object-fit:cover;
-  object-position:center;
-  will-change:transform;
-  transform:translateZ(0);
+/* =========================
+   VEXO PREMIUM HERO - VIDEO FIRST CINEMATIC
+   ========================= */
+.hero{
+  position:relative;
+  overflow:hidden;
+  background:#080F20;
+  padding:0;
+  isolation:isolate;
+  min-height:92vh;
+  display:flex;
+  align-items:center;
 }
-.hero-img-wrap::after{
-  content:"";
-  position:absolute;inset:0;
-  background:linear-gradient(180deg, rgba(11,26,51,0.10) 15%, rgba(11,26,51,0.28) 100%), radial-gradient(600px 400px at 80% 20%, rgba(11,26,51,0.18), transparent 70%);
+.hero-video-wrap{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  overflow:hidden;
+}
+.hero-video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 35%;
+  transform:translateZ(0) scale(1.02);
+  will-change:transform;
+}
+.hero-video-overlay{
+  position:absolute;
+  inset:0;
   z-index:1;
+  background:
+    radial-gradient(900px 600px at 75% 15%, rgba(24,182,255,0.18), transparent 60%),
+    linear-gradient(90deg, rgba(8,15,32,0.92) 0%, rgba(8,15,32,0.78) 38%, rgba(8,15,32,0.42) 68%, rgba(8,15,32,0.18) 100%),
+    linear-gradient(180deg, rgba(8,15,32,0.28) 0%, rgba(8,15,32,0.15) 50%, rgba(8,15,32,0.55) 100%);
   pointer-events:none;
 }
-.hero-img-wrap .float-badge,
-.hero-img-wrap ~ .float-badge,
-.float-badge{ z-index:3 }
-.float-card{ z-index:3 }
+.hero-video-vignette{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:radial-gradient(120% 120% at 50% 50%, transparent 55%, rgba(0,0,0,0.35) 100%);
+  pointer-events:none;
+}
+.hero-content-layer{
+  position:relative;
+  z-index:2;
+  width:100%;
+  padding:72px 0 56px;
+}
+.hero-grid-premium{
+  display:grid;
+  grid-template-columns:1.08fr 0.92fr;
+  gap:48px;
+  align-items:center;
+}
+.hero-content{
+  max-width:640px;
+}
+.hero-reveal{
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity 0.7s ease, transform 0.7s ease;
+  will-change:opacity, transform;
+}
+.hero-reveal.is-visible{
+  opacity:1;
+  transform:translateY(0);
+}
+.hero-reveal[data-delay="1"]{transition-delay:0.1s}
+.hero-reveal[data-delay="2"]{transition-delay:0.25s}
+.hero-reveal[data-delay="3"]{transition-delay:0.4s}
+.hero-reveal[data-delay="4"]{transition-delay:0.55s}
+.hero-reveal[data-delay="5"]{transition-delay:0.7s}
+.hero-reveal[data-delay="6"]{transition-delay:0.85s}
+
+.hero .eyebrow{
+  background:rgba(24,182,255,0.12);
+  border-color:rgba(24,182,255,0.28);
+  color:#7DD4FF;
+  backdrop-filter:blur(8px);
+}
+.hero h1{
+  font-size:clamp(38px,5.2vw,68px);
+  line-height:0.92;
+  letter-spacing:-0.045em;
+  font-weight:800;
+  color:#fff;
+  text-shadow:0 2px 24px rgba(0,0,0,0.35);
+}
+.hero-desc{
+  font-size:clamp(16px,1.55vw,18px);
+  line-height:1.7;
+  color:#C2D1E8;
+  margin:18px 0 28px;
+  max-width:52ch;
+}
+.hero-ctas{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-bottom:26px;
+}
+.hero-ctas .btn-ghost{
+  background:rgba(255,255,255,0.08);
+  border-color:rgba(255,255,255,0.18);
+  color:#fff;
+  backdrop-filter:blur(10px);
+}
+.hero-ctas .btn-ghost:hover{
+  background:rgba(255,255,255,0.14);
+  border-color:rgba(255,255,255,0.28);
+}
+.trust-mini{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  border-top:1px solid rgba(255,255,255,0.12);
+  padding-top:20px;
+  margin-top:8px;
+}
+.trust-mini li{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:13px;
+  font-weight:600;
+  color:#D6E2F5;
+}
+.trust-mini li i{
+  width:22px;height:22px;border-radius:50%;
+  background:rgba(255,255,255,0.1);
+  border:1px solid rgba(255,255,255,0.14);
+  color:#7DD4FF;
+  display:grid;place-items:center;
+  font-size:11px;font-style:normal;
+}
+.hero-visual{
+  position:relative;
+  isolation:isolate;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.hero-img-wrap-premium{
+  position:relative;
+  width:100%;
+  aspect-ratio:4/3.2;
+  border-radius:28px;
+  overflow:hidden;
+  background:#0B1A33;
+  border:1px solid rgba(255,255,255,0.12);
+  box-shadow:0 24px 64px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.25);
+}
+.hero-img-wrap-premium .hero-video{
+  position:absolute;
+  inset:0;
+  object-position:center;
+}
+.float-badge{
+  position:absolute;
+  right:16px;
+  top:16px;
+  z-index:3;
+  background:rgba(11,26,51,0.88);
+  backdrop-filter:blur(12px);
+  color:#fff;
+  border-radius:999px;
+  padding:8px 14px;
+  font-size:12px;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  border:1px solid rgba(255,255,255,0.18);
+  box-shadow:0 8px 24px rgba(0,0,0,0.25);
+}
+.live{width:8px;height:8px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 4px rgba(34,197,94,0.22)}
+.float-card{
+  position:absolute;
+  left:-20px;
+  bottom:24px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:14px 16px;
+  box-shadow:0 20px 48px rgba(11,26,51,0.18);
+  display:flex;
+  gap:12px;
+  align-items:center;
+  z-index:3;
+  min-width:240px;
+}
+.float-card-icon{width:42px;height:42px;border-radius:12px;background:var(--primary);color:#fff;display:grid;place-items:center;font-weight:800}
+.float-card .stars{color:#F59E0B;letter-spacing:2px;font-size:14px}
+.float-card b{font-size:18px;line-height:1}
+.float-card small{display:block;color:var(--muted);font-size:12px;font-weight:600;margin-top:2px}
+
+/* Free Estimate Form Fix */
+.estimate-form .form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+.estimate-form .field{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  width:100%;
+}
+.estimate-form .field.full{
+  grid-column:1 / -1;
+}
+.estimate-form .field label{
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:#334155;
+  line-height:1.3;
+}
+.estimate-form .input,
+.estimate-form .textarea{
+  width:100%;
+  box-sizing:border-box;
+  max-width:100%;
+}
+.estimate-form .input{
+  height:48px;
+}
+.estimate-form .textarea{
+  min-height:110px;
+}
+
+@media (max-width:1024px){
+  .hero{
+    min-height:auto;
+  }
+  .hero-grid-premium{
+    grid-template-columns:1fr;
+    gap:28px;
+  }
+  .hero-content-layer{
+    padding:48px 0 36px;
+  }
+  .hero-visual{
+    order:-1;
+  }
+  .hero-img-wrap-premium{
+    aspect-ratio:16/10;
+    max-height:420px;
+  }
+  .float-card{
+    left:12px;
+    bottom:12px;
+  }
+}
+@media (max-width:768px){
+  .hero{
+    min-height:auto;
+  }
+  .hero-video-overlay{
+    background:
+      radial-gradient(700px 500px at 50% 0%, rgba(24,182,255,0.14), transparent 60%),
+      linear-gradient(180deg, rgba(8,15,32,0.55) 0%, rgba(8,15,32,0.82) 55%, rgba(8,15,32,0.94) 100%);
+  }
+  .hero-content-layer{
+    padding:0 0 28px;
+  }
+  .hero-grid-premium{
+    gap:0;
+  }
+  .hero-visual{
+    order:0;
+  }
+  .hero-img-wrap-premium{
+    aspect-ratio:4/3;
+    border-radius:22px;
+    min-height:360px;
+    max-height:520px;
+    width:100%;
+  }
+  .hero-content{
+    max-width:100%;
+    padding:22px 0 0;
+  }
+  .hero h1{
+    font-size:clamp(32px,9vw,42px);
+    line-height:0.95;
+  }
+  .hero-desc{
+    font-size:16px;
+    margin:14px 0 20px;
+  }
+  .hero-ctas{
+    flex-direction:column;
+    gap:10px;
+    margin-bottom:18px;
+  }
+  .hero-ctas .btn{
+    width:100%;
+    height:50px;
+  }
+  .trust-mini{
+    gap:12px;
+  }
+  /* Form mobile fix */
+  .estimate-form .form-grid{
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+  .estimate-form .field{
+    width:100%;
+  }
+  .estimate-form .field.full{
+    grid-column:1;
+  }
+}
+@media (max-width:480px){
+  .hero-img-wrap-premium{
+    border-radius:18px;
+    min-height:320px;
+  }
+  .float-card{
+    left:10px;
+    right:10px;
+    bottom:10px;
+    min-width:0;
+    width:auto;
+  }
+  .float-badge{
+    right:10px;
+    top:10px;
+  }
+}
 @media (prefers-reduced-motion: reduce){
-  .hero-video{transform:none !important}
+  .hero-reveal{
+    opacity:1 !important;
+    transform:none !important;
+    transition:none !important;
+  }
+  .hero-video{
+    transform:none !important;
+  }
 }
 </style>
 </head>
@@ -102,39 +445,66 @@
 
 <main>
 
-<!-- HERO - VIDEO INTEGRATED -->
-<section class="hero" id="home">
-  <div class="container hero-grid">
-    <div>
-      <div class="badge-row">
-        <span class="eyebrow">● Trusted HVAC Experts in Dallas</span>
-        <span class="pill pill-light">⭐ 4.9/5 • 500+ Reviews</span>
+<!-- HERO - PREMIUM VIDEO FIRST CINEMATIC -->
+<section class="hero" id="home" aria-label="Hero">
+  <div class="hero-video-wrap" aria-hidden="true">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1169&auto=format&fit=crop">
+      <source src="assets/videos/video.mp4" type="video/mp4">
+    </video>
+    <div class="hero-video-overlay"></div>
+    <div class="hero-video-vignette"></div>
+  </div>
+
+  <div class="hero-content-layer">
+    <div class="container hero-grid-premium">
+      <div class="hero-content">
+        <div class="hero-reveal" data-delay="1">
+          <div class="badge-row">
+            <span class="float-badge" style="position:relative; right:auto; top:auto; display:inline-flex; margin-bottom:16px;"><span class="live" aria-hidden="true"></span> Available Now • Dallas</span>
+          </div>
+        </div>
+        <div class="hero-reveal" data-delay="2">
+          <div class="badge-row" style="margin-bottom:14px">
+            <span class="eyebrow">● Trusted HVAC Experts in Dallas</span>
+            <span class="pill pill-light" style="background:rgba(255,255,255,0.92)">⭐ 4.9/5 • 500+ Reviews</span>
+          </div>
+        </div>
+        <div class="hero-reveal" data-delay="3">
+          <h1>Comfort You<br>Can Count On.</h1>
+        </div>
+        <div class="hero-reveal" data-delay="4">
+          <p class="hero-desc">Fast, reliable heating and cooling services for your home. Our licensed HVAC professionals are ready when you need us — same-day service, upfront pricing, no surprises.</p>
+        </div>
+        <div class="hero-reveal" data-delay="5">
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="./page/quote.html">Get a Free Estimate →</a>
+            <a class="btn btn-ghost" href="tel:5551234567" data-phone-raw>Call <span data-phone-display>(555) 123-4567</span></a>
+          </div>
+        </div>
+        <div class="hero-reveal" data-delay="6">
+          <ul class="trust-mini" role="list">
+            <li><i aria-hidden="true">✓</i> Licensed & Insured</li>
+            <li><i aria-hidden="true">✓</i> Same-Day Service</li>
+            <li><i aria-hidden="true">✓</i> 24/7 Emergency Support</li>
+          </ul>
+        </div>
       </div>
-      <h1>Comfort You<br>Can Count On.</h1>
-      <p class="hero-desc">Fast, reliable heating and cooling services for your home. Our licensed HVAC professionals are ready when you need us — same-day service, upfront pricing, no surprises.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-primary" href="./page/quote.html">Get a Free Estimate →</a>
-        <a class="btn btn-ghost" href="tel:5551234567" data-phone-raw>Call <span data-phone-display>(555) 123-4567</span></a>
-      </div>
-      <ul class="trust-mini" role="list">
-        <li><i aria-hidden="true">✓</i> Licensed & Insured</li>
-        <li><i aria-hidden="true">✓</i> Same-Day Service</li>
-        <li><i aria-hidden="true">✓</i> 24/7 Emergency Support</li>
-      </ul>
-    </div>
-    <div class="hero-visual">
-      <div class="float-badge"><span class="live" aria-hidden="true"></span> Available Now • Dallas</div>
-      <div class="hero-img-wrap">
-        <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1169&auto=format&fit=crop" aria-hidden="true">
-          <source src="assets/videos/video.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="float-card">
-        <div class="float-card-icon" aria-hidden="true">★</div>
-        <div>
-          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-          <b>4.9/5 Rating</b>
-          <small>500+ Happy Customers in Dallas</small>
+
+      <div class="hero-visual hero-reveal" data-delay="2">
+        <div class="hero-img-wrap-premium">
+          <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1169&auto=format&fit=crop" aria-hidden="true">
+            <source src="assets/videos/video.mp4" type="video/mp4">
+          </video>
+          <div class="hero-video-overlay" style="background:linear-gradient(180deg, rgba(11,26,51,0) 40%, rgba(11,26,51,0.28) 100%)"></div>
+          <div class="float-badge" style="top:14px; right:14px"><span class="live" aria-hidden="true"></span> Available Now • Dallas</div>
+        </div>
+        <div class="float-card">
+          <div class="float-card-icon" aria-hidden="true">★</div>
+          <div>
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <b>4.9/5 Rating</b>
+            <small>500+ Happy Customers in Dallas</small>
+          </div>
         </div>
       </div>
     </div>
@@ -235,7 +605,7 @@
 </section>
 
 <!-- EMERGENCY HVAC CTA -->
-<section class="emergency">
+<section class="emergency" id="emergency">
   <div class="container emergency-grid">
     <div>
       <h2>HVAC Emergency? We're Ready 24/7.</h2>
@@ -362,7 +732,7 @@
   </div>
 </section>
 
-<!-- FREE ESTIMATE CTA / FORM -->
+<!-- FREE ESTIMATE CTA / FORM - FIXED MOBILE STRUCTURE -->
 <section class="section estimate" id="estimate">
   <div class="container">
     <div class="estimate-wrap">
@@ -383,12 +753,28 @@
       </div>
       <form class="estimate-form" id="estimateForm" novalidate aria-label="Request free HVAC estimate">
         <div class="form-grid">
-          <div class="field"><label for="firstName">First Name *</label><input class="input" id="firstName" name="firstName" placeholder="John" required autocomplete="given-name"></div>
-          <div class="field"><label for="lastName">Last Name *</label><input class="input" id="lastName" name="lastName" placeholder="Smith" required autocomplete="family-name"></div>
-          <div class="field"><label for="phone">Phone *</label><input class="input" id="phone" name="phone" type="tel" placeholder="(555) 123-4567" required autocomplete="tel"></div>
-          <div class="field"><label for="email">Email</label><input class="input" id="email" name="email" type="email" placeholder="john@email.com" autocomplete="email"></div>
-          <div class="field"><label for="zip">ZIP Code *</label><input class="input" id="zip" name="zip" placeholder="75201" required autocomplete="postal-code" inputmode="numeric"></div>
-          <div class="field"><label for="service">Service Needed *</label>
+          <div class="field">
+            <label for="firstName">First Name *</label>
+            <input class="input" id="firstName" name="firstName" placeholder="John" required autocomplete="given-name" type="text">
+          </div>
+          <div class="field">
+            <label for="lastName">Last Name *</label>
+            <input class="input" id="lastName" name="lastName" placeholder="Smith" required autocomplete="family-name" type="text">
+          </div>
+          <div class="field">
+            <label for="phone">Phone *</label>
+            <input class="input" id="phone" name="phone" type="tel" placeholder="(555) 123-4567" required autocomplete="tel" inputmode="tel">
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input class="input" id="email" name="email" type="email" placeholder="john@email.com" autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="zip">ZIP Code *</label>
+            <input class="input" id="zip" name="zip" placeholder="75201" required autocomplete="postal-code" inputmode="numeric" type="text">
+          </div>
+          <div class="field">
+            <label for="service">Service Needed *</label>
             <select class="input" id="service" name="service" required>
               <option value="" disabled selected>Select a service</option>
               <option value="ac-repair">AC Repair</option>
@@ -400,7 +786,10 @@
               <option value="other">Other</option>
             </select>
           </div>
-          <div class="field full"><label for="message">Message</label><textarea class="input textarea" id="message" name="message" placeholder="Tell us about your HVAC issue, system type, home size..." rows="4"></textarea></div>
+          <div class="field full">
+            <label for="message">Message</label>
+            <textarea class="input textarea" id="message" name="message" placeholder="Tell us about your HVAC issue, system type, home size..." rows="4"></textarea>
+          </div>
         </div>
         <div class="form-foot">
           <button class="btn btn-primary btn-form" type="submit">Get My Free Estimate →</button>
@@ -469,33 +858,59 @@
 
 <script type="module" src="./js/app.js"></script>
 <script>
-// Premium Hero Video Parallax - lightweight, respects reduced-motion
+// Premium Hero Reveal - opacity + transform, lightweight for Android
 (function(){
+  const videos = document.querySelectorAll('.hero-video');
+  const reveals = document.querySelectorAll('.hero-reveal');
   const hero = document.getElementById('home');
-  const video = document.querySelector('.hero-video');
-  if(!hero || !video) return;
+  if(!hero) return;
+
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reduceMotion) return;
-  let ticking = false;
-  const speed = 0.22; // subtle cinematic
+
+  // Autoplay guard for mobile
+  videos.forEach(v=>{
+    v.play().catch(()=>{});
+  });
+
+  if(reduceMotion){
+    reveals.forEach(el=> el.classList.add('is-visible'));
+    return;
+  }
+
+  // IntersectionObserver for premium staggered reveal
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+      }
+    });
+  }, {threshold:0.15, rootMargin:'0px 0px -8% 0px'});
+
+  reveals.forEach(el=> observer.observe(el));
+
+  // Immediate first video visible
+  setTimeout(()=>{
+    const first = document.querySelector('.hero-reveal[data-delay="1"]');
+    if(first) first.classList.add('is-visible');
+  }, 200);
+
+  // Subtle parallax only on background video
+  let ticking=false;
+  const bgVideo = document.querySelector('.hero-video-wrap .hero-video');
   function onScroll(){
-    if(ticking) return;
-    ticking = true;
+    if(!bgVideo || ticking) return;
+    ticking=true;
     requestAnimationFrame(()=>{
       const rect = hero.getBoundingClientRect();
-      // Only animate while hero is in viewport
-      if(rect.bottom > 0 && rect.top < window.innerHeight){
-        const offset = window.scrollY * speed;
-        video.style.transform = 'translate3d(0,' + (offset * 0.35) + 'px,0) scale(1.08)';
+      if(rect.bottom>0 && rect.top < window.innerHeight){
+        const progress = Math.min(window.scrollY / 800, 1);
+        bgVideo.style.transform = 'translate3d(0,' + (progress*40) + 'px,0) scale(' + (1.02 + progress*0.04) + ')';
       }
-      ticking = false;
+      ticking=false;
     });
   }
   window.addEventListener('scroll', onScroll, {passive:true});
-  onScroll();
-  // Ensure autoplay on mobile
-  video.play().catch(()=>{});
 })();
 </script>
-</body>
+<script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script></body>
 </html>
