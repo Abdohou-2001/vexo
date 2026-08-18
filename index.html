@@ -1,0 +1,252 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Vexo HVAC | Trusted HVAC Experts in Dallas, TX - 24/7 Emergency Service</title> <meta name="description" content="Fast, reliable heating and cooling services in Dallas, TX. Licensed HVAC professionals, same-day service, 24/7 emergency support. Get a free estimate today."> <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"> <style> :root{ --primary:#0B1A33; --primary-2:#13294F; --secondary:#172E5E; --accent:#18B6FF; --accent-2:#0EA5E9; --accent-soft:#E6F7FF; --background:#F7F9FC; --surface:#FFFFFF; --surface-2:#F1F5F9; --text:#0F172A; --muted:#64748B; --muted-2:#94A3B8; --line:#E2E8F0; --line-2:#EEF2F7; --radius:20px; --radius-sm:12px; --radius-pill:999px; --shadow-sm:0 1px 2px rgba(11,26,51,.06), 0 4px 12px rgba(11,26,51,.04); --shadow:0 12px 24px rgba(11,26,51,.08), 0 2px 8px rgba(11,26,51,.06); --shadow-lg:0 24px 48px rgba(11,26,51,.12), 0 8px 24px rgba(11,26,51,.08); --max:1240px; } *{margin:0;padding:0;box-sizing:border-box} html{scroll-behavior:smooth} body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--background);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden} img{display:block;max-width:100%} a{color:inherit;text-decoration:none} button,input,select,textarea{font:inherit} ul{list-style:none}
+/* UTILS */
+.container{width:min(calc(100% - 32px), var(--max));margin-inline:auto}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-2);background:var(--accent-soft);border:1px solid #D6EEFF;padding:6px 12px;border-radius:var(--radius-pill)}
+.eyebrow.dark{background:rgba(24,182,255,.12);border-color:rgba(24,182,255,.25);color:#7DD4FF}
+.h2{font-size:clamp(28px,4vw,42px);line-height:1.05;font-weight:800;letter-spacing:-.03em}
+.h3{font-size:22px;line-height:1.2;font-weight:700;letter-spacing:-.02em}
+.p{color:var(--muted);font-size:16px;line-height:1.7}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:48px;padding:0 22px;border-radius:12px;font-weight:600;font-size:15px;white-space:nowrap;transition:.2s ease;cursor:pointer;border:1px solid transparent}
+.btn-primary{background:var(--accent);color:var(--primary);box-shadow:0 6px 18px rgba(24,182,255,.35)}
+.btn-primary:hover{background:#1AC0FF;transform:translateY(-1px);box-shadow:0 10px 26px rgba(24,182,255,.4)}
+.btn-secondary{background:var(--primary);color:#fff}
+.btn-secondary:hover{background:var(--primary-2);transform:translateY(-1px)}
+.btn-ghost{background:#fff;border-color:var(--line);color:var(--text)}
+.btn-ghost:hover{border-color:var(--text);background:#fff}
+.btn-sm{height:40px;padding:0 16px;font-size:14px;border-radius:10px}
+.pill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600}
+
+/* TOP BAR */
+.topbar{background:var(--primary);color:#CFEFFF;font-size:13px;position:relative;z-index:50}
+.topbar.inner{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:40px;padding:8px 0}
+.topbar-left{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.dot{width:8px;height:8px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 4px rgba(34,197,94,.18)}
+.topbar strong{color:#fff;font-weight:700}
+.topbar a.call{color:#fff;font-weight:700;display:inline-flex;align-items:center;gap:6px;text-decoration:underline;text-underline-offset:3px}
+.topbar a.call:hover{color:var(--accent)}
+
+/* NAVBAR */
+.header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.84);backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid var(--line-2)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:72px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{width:40px;height:40px;border-radius:12px;background:linear-gradient(180deg,var(--primary),var(--secondary));display:grid;place-items:center;color:#fff;font-weight:800;letter-spacing:-.02em;box-shadow:var(--shadow-sm)}
+.brand-name{font-weight:800;font-size:18px;letter-spacing:-.02em;line-height:1}
+.brand-sub{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-top:2px}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:14px;font-weight:500;color:#334155;position:relative;padding:4px 0}
+.nav-links a:hover,.nav-links a.active{color:var(--text)}
+.nav-links a.active:after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:2px;background:var(--accent);border-radius:999px}
+.nav-right{display:flex;align-items:center;gap:14px}
+.phone{display:flex;align-items:center;gap:10px;font-weight:700}
+.phone small{display:block;font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;line-height:1}
+.phone strong{font-size:14px;line-height:1}
+.hamburger{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:#fff;place-items:center;cursor:pointer}
+.hamburger span{width:18px;height:2px;background:var(--text);display:block;position:relative;transition:.2s}
+.hamburger span:before,.hamburger span:after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--text);transition:.2s}
+.hamburger span:before{top:-6px}.hamburger span:after{top:6px}
+.hamburger.active span{background:transparent}
+.hamburger.active span:before{transform:translateY(6px) rotate(45deg)}
+.hamburger.active span:after{transform:translateY(-6px) rotate(-45deg)}
+.mobile{display:none;border-top:1px solid var(--line-2);background:#fff;padding:12px 0 20px}
+.mobile.open{display:block}
+.mobile a{display:flex;align-items:center;justify-content:space-between;padding:14px 4px;font-weight:600;border-bottom:1px solid var(--line-2)}
+.mobile.actions{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+
+/* HERO */
+.hero{background:radial-gradient(1200px 600px at 80% -10%, #E6F3FF 0%, transparent 60%), linear-gradient(180deg, #FFFFFF 0%, #F7F9FC 100%);padding:28px 0 0;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr.95fr;gap:32px;align-items:center;padding:36px 0 28px}
+.badge-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+.hero h1{font-size:clamp(36px,5.2vw,64px);line-height:.95;letter-spacing:-.04em;font-weight:800}
+.hero h1 span{color:var(--accent-2)}
+.hero-desc{font-size:clamp(16px,1.6vw,18px);color:var(--muted);margin:18px 0 26px;max-width:54ch;line-height:1.7}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.trust-mini{display:flex;gap:18px;flex-wrap:wrap;border-top:1px solid var(--line-2);padding-top:18px;margin-top:6px}
+.trust-mini li{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#334155}
+.trust-mini li i{width:22px;height:22px;border-radius:50%;background:var(--primary);color:#fff;display:grid;place-items:center;font-size:12px;font-style:normal}
+.hero-visual{position:relative;isolation:isolate}
+.hero-img-wrap{position:relative;border-radius:28px;overflow:hidden;background:#E2E8F0;box-shadow:var(--shadow-lg);aspect-ratio:4/3.2;border:1px solid #E9EEF5}
+.hero-img-wrap img{width:100%;height:100%;object-fit:cover}
+.hero-img-wrap:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(11,26,51,0) 40%, rgba(11,26,51,.28) 100%)}
+.float-card{position:absolute;left:-22px;bottom:28px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px 16px;box-shadow:var(--shadow-lg);display:flex;gap:12px;align-items:center;z-index:2;min-width:240px}
+.float-card.stars{color:#F59E0B;letter-spacing:2px;font-size:14px}
+.float-card b{font-size:18px;line-height:1}
+.float-card small{display:block;color:var(--muted);font-size:12px;font-weight:600;margin-top:2px}
+.float-badge{position:absolute;right:14px;top:14px;z-index:2;background:rgba(11,26,51,.88);backdrop-filter:blur(10px);color:#fff;border-radius:999px;padding:8px 12px;font-size:12px;font-weight:700;display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.18)}
+.float-badge.live{width:8px;height:8px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 4px rgba(34,197,94,.22)}
+
+/* TRUST BAR */
+.trustbar{background:#fff;border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
+.trustbar-grid{display:grid;grid-template-columns:repeat(4,1fr);divide:true}
+.trustbar-item{display:flex;align-items:center;gap:16px;padding:20px 0;border-right:1px solid var(--line-2)}
+.trustbar-item:last-child{border-right:0}
+.trustbar-item b{font-size:28px;line-height:1;letter-spacing:-.03em}
+.trustbar-item span{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:block;margin-top:4px}
+.trust-icon{width:44px;height:44px;border-radius:12px;background:var(--surface-2);border:1px solid var(--line-2);display:grid;place-items:center;font-size:18px}
+
+/* SECTIONS COMMON */
+.section{padding:88px 0}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:36px}
+.section-head p{max-width:52ch}
+
+/* SERVICES */
+.services{padding-top:84px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;transition:.25s ease;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#D9E2EF}
+.card-top{display:flex;align-items:start;justify-content:space-between;margin-bottom:16px}
+.card-icon{width:48px;height:48px;border-radius:14px;background:linear-gradient(180deg,#F0F9FF,#E6F3FF);border:1px solid #D6E9FF;display:grid;place-items:center;font-size:22px;color:var(--primary)}
+.card h3{font-size:17px;font-weight:700;letter-spacing:-.01em;margin-bottom:8px}
+.card p{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:16px}
+.card a.link{font-size:13px;font-weight:700;display:inline-flex;align-items:center;gap:6px;color:var(--primary)}
+.card a.link:hover{color:var(--accent-2)}
+.card a.link:after{content:"→";transition:.2s}
+.card:hover a.link:after{transform:translateX(3px)}
+
+/* WHY */
+.why{background:var(--primary);color:#E6EEFA;position:relative;overflow:hidden}
+.why:after{content:"";position:absolute;inset:0;background:radial-gradient(800px 400px at 20% 0%, rgba(24,182,255,.18), transparent 60%)}
+.why.container{position:relative;z-index:1}
+.why-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:40px;align-items:center}
+.why.h2{color:#fff}
+.why.p{color:#9FB3D6}
+.why-list{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px}
+.why-item{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:18px}
+.why-item b{display:block;font-size:15px;color:#fff;margin:10px 0 6px}
+.why-item p{font-size:13px;color:#9FB3D6;line-height:1.6}
+.why-icon{width:40px;height:40px;border-radius:10px;background:#0F264E;border:1px solid rgba(255,255,255,.12);display:grid;place-items:center;color:#7DD4FF}
+.why-img{border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,.12);aspect-ratio:4/3;box-shadow:0 20px 40px rgba(0,0,0,.35)}
+.why-img img{width:100%;height:100%;object-fit:cover}
+
+/* EMERGENCY */
+.emergency{background:linear-gradient(100deg, #0B1A33 0%, #122A56 60%, #0B1A33 100%);color:#fff;padding:28px 0;position:relative;overflow:hidden}
+.emergency:before{content:"";position:absolute;left:-10%;top:-40%;width:60%;height:140%;background:radial-gradient(closest-side, rgba(24,182,255,.28), transparent);filter:blur(20px)}
+.emergency-grid{display:grid;grid-template-columns:1.2fr.8fr;align-items:center;gap:24px;position:relative}
+.emergency h2{font-size:clamp(24px,3vw,34px);line-height:1.1;letter-spacing:-.02em}
+.emergency p{color:#9FB3D6;margin:10px 0 0;font-size:15px}
+.emergency-actions{display:flex;gap:12px;justify-content:flex-end;flex-wrap:wrap}
+.emergency.btn-primary{color:var(--primary)}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.about-media{position:relative}
+.about-main-img{border-radius:24px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;box-shadow:var(--shadow)}
+.about-main-img img{width:100%;height:100%;object-fit:cover}
+.exp-badge{position:absolute;left:-16px;bottom:-16px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 18px;box-shadow:var(--shadow-lg);display:flex;align-items:center;gap:12px}
+.exp-badge b{font-size:28px;letter-spacing:-.03em}
+.exp-badge span{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);line-height:1.2}
+.checks{display:grid;gap:12px;margin:22px 0 0}
+.checks li{display:flex;gap:10px;align-items:start;font-size:14px;font-weight:500}
+.checks li i{width:22px;height:22px;border-radius:50%;background:var(--accent-soft);color:var(--accent-2);display:grid;place-items:center;font-style:normal;font-weight:800;font-size:12px;flex:0 0 22px;margin-top:1px}
+
+/* SHOWCASE */
+.showcase{background:var(--surface-2);border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
+.show-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.project{border-radius:20px;overflow:hidden;background:#fff;border:1px solid var(--line);transition:.25s;box-shadow:var(--shadow-sm)}
+.project:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.project-img{aspect-ratio:4/2.7;overflow:hidden;background:#E2E8F0;position:relative}
+.project-img img{width:100%;height:100%;object-fit:cover;transition:.6s}
+.project:hover.project-img img{transform:scale(1.06)}
+.project-tag{position:absolute;left:12px;top:12px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 10px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.project-body{padding:16px 18px 18px}
+.project-body h3{font-size:16px;margin-bottom:6px}
+.project-body p{font-size:13px;color:var(--muted);line-height:1.6}
+
+/* REVIEWS */
+.reviews-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.rating-badge{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px 14px;box-shadow:var(--shadow-sm)}
+.google{display:flex;align-items:center;gap:8px;font-weight:700}
+.google i{width:28px;height:28px;border-radius:50%;background:#fff;border:1px solid var(--line);display:grid;place-items:center;font-style:normal;font-weight:800;color:#4285F4}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+.rev{border-radius:20px;background:#fff;border:1px solid var(--line);padding:22px;box-shadow:var(--shadow-sm)}
+.rev.stars{color:#F59E0B;letter-spacing:2px;font-size:14px;margin-bottom:12px}
+.rev p.quote{font-size:15px;line-height:1.7;font-weight:500;color:#1E293B}
+.rev.meta{display:flex;align-items:center;gap:12px;margin-top:18px}
+.avatar{width:40px;height:40px;border-radius:50%;background:var(--surface-2);border:1px solid var(--line);display:grid;place-items:center;font-weight:700;color:var(--primary)}
+.meta b{font-size:14px}
+.meta small{display:block;font-size:12px;color:var(--muted)}
+
+/* AREAS */
+.areas{background:var(--primary);color:#fff;position:relative}
+.areas.h2{color:#fff}
+.areas-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}
+.area{border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);padding:14px 16px;display:flex;align-items:center;justify-content:space-between;transition:.2s}
+.area:hover{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.2)}
+.area b{font-size:14px}
+.area span{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#9FB3D6;font-weight:700}
+.areas-foot{margin-top:18px;color:#9FB3D6;font-size:13px}
+
+/* ESTIMATE */
+.estimate{background:linear-gradient(180deg,#FFFFFF 0%, #F7F9FC 100%);padding-bottom:0}
+.estimate-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:0;border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:var(--shadow-lg);background:#fff}
+.estimate-copy{padding:36px 32px;background:linear-gradient(180deg,#0B1A33,#13294F);color:#E6EEFA;position:relative;overflow:hidden}
+.estimate-copy:after{content:"";position:absolute;right:-20%;bottom:-20%;width:80%;height:80%;background:radial-gradient(closest-side, rgba(24,182,255,.22), transparent);filter:blur(10px)}
+.estimate-copy > *{position:relative;z-index:1}
+.estimate-copy h2{color:#fff;font-size:32px;line-height:1.05;letter-spacing:-.03em}
+.estimate-copy ul{margin-top:22px;display:grid;gap:12px}
+.estimate-copy li{display:flex;gap:10px;align-items:center;font-size:14px}
+.estimate-copy li i{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);display:grid;place-items:center;color:#7DD4FF;font-style:normal}
+.estimate-form{padding:28px 28px 26px;background:#fff}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:grid;gap:6px}
+.field.full{grid-column:1/-1}
+.field label{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#334155}
+.input{height:46px;border-radius:12px;border:1px solid var(--line);background:#fff;padding:0 14px;font-size:14px;outline:0;transition:.2s;width:100%}
+.input:focus{border-color:var(--accent-2);box-shadow:0 0 0 4px rgba(14,165,233,.15)}
+textarea.input{height:auto;min-height:96px;padding:12px 14px;resize:vertical}
+select.input{cursor:pointer}
+.form-foot{display:flex;align-items:center;gap:12px;margin-top:16px;flex-wrap:wrap}
+.form-foot small{color:var(--muted);font-size:12px;line-height:1.5}
+.notice{display:none;margin-top:12px;padding:12px 14px;border-radius:12px;background:#ECFDF5;border:1px solid #A7F3D0;color:#065F46;font-size:13px;font-weight:600}
+
+/* FOOTER */
+.footer{background:#080F20;color:#9FB3D6;border-top:1px solid rgba(255,255,255,.08)}
+.footer-top{display:grid;grid-template-columns:1.4fr.8fr.9fr 1fr;gap:28px;padding:44px 0 28px}
+.footer b.title{color:#fff;font-size:13px;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:14px}
+.footer p{font-size:14px;line-height:1.7}
+.footer a{font-size:14px;color:#9FB3D6}
+.footer a:hover{color:#fff}
+.footer ul{display:grid;gap:10px}
+.social{display:flex;gap:8px;margin-top:14px}
+.social a{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:grid;place-items:center}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:18px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px}
+.footer-bottom a{text-decoration:underline;text-underline-offset:3px}
+
+/* TOAST */
+.toast{position:fixed;right:16px;bottom:16px;background:var(--primary);color:#fff;border:1px solid rgba(255,255,255,.14);padding:14px 16px;border-radius:14px;box-shadow:var(--shadow-lg);transform:translateY(20px);opacity:0;pointer-events:none;transition:.3s;z-index:100}
+.toast.show{transform:translateY(0);opacity:1}
+
+/* RESPONSIVE */
+@media (max-width:1024px){
+.hero-grid,.why-grid,.about-grid,.estimate-wrap,.emergency-grid{grid-template-columns:1fr}
+.grid-3,.show-grid,.rev-grid{grid-template-columns:repeat(2,1fr)}
+.areas-grid{grid-template-columns:repeat(3,1fr)}
+.footer-top{grid-template-columns:1fr 1fr}
+.float-card{left:12px;bottom:12px}
+}
+@media (max-width:768px){
+.nav-links,.nav-right.phone,.nav-right.btn{display:none}
+.hamburger{display:grid}
+.container{width:min(calc(100% - 20px), var(--max))}
+.hero-grid{padding:18px 0 18px}
+.hero-img-wrap{aspect-ratio:4/3}
+.trustbar-grid{grid-template-columns:1fr 1fr}
+.trustbar-item{padding:14px 0}
+.trustbar-item:nth-child(2n){border-right:0}
+.section{padding:64px 0}
+.grid-3,.show-grid,.rev-grid,.form-grid{grid-template-columns:1fr}
+.areas-grid{grid-template-columns:1fr 1fr}
+.footer-top{grid-template-columns:1fr}
+.emergency-actions{justify-content:stretch}
+.emergency-actions.btn{flex:1}
+}
+@media (max-width:430px){
+.trustbar-grid{grid-template-columns:1fr}
+.trustbar-item{border-right:0;border-bottom:1px solid var(--line-2)}
+.trustbar-item:last-child{border-bottom:0}
+.hero-ctas.btn{width:100%}
+}
+</style>
+
+</head> <body> <!-- TOP ANNOUNCEMENT BAR --> <div class="topbar"> <div class="container inner"> <div class="topbar-left"> <span class="dot"></span> <span><strong>24/7 Emergency HVAC Service Available</strong> — Fast response in Dallas & surrounding areas</span> </div> <a class="call" href="tel:5551234567">Call Now: (555) 123-4567 →</a> </div> </div> <!-- NAVBAR --> <header class="header"> <div class="container nav"> <a class="brand" href="#home" aria-label="Vexo HVAC Home"> <div class="brand-mark">V</div> <div> <div class="brand-name">Vexo HVAC</div> <div class="brand-sub">Dallas, TX • Licensed</div> </div> </a> <nav class="nav-links" aria-label="Primary"> <a class="active" href="#home">Home</a> <a href="#services">Services</a> <a href="#about">About</a> <a href="#reviews">Reviews</a> <a href="#areas">Service Areas</a> <a href="#estimate">Contact</a> </nav> <div class="nav-right"> <div class="phone"> <div style="width:36px;height:36px;border-radius:10px;background:var(--surface-2);border:1px solid var(--line);display:grid;place-items:center">📞</div> <div> <small>Call 24/7</small> <strong>(555) 123-4567</strong> </div> </div> <a class="btn btn-primary btn-sm" href="#estimate">Get a Free Estimate</a> <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span></button> </div> </div> <div class="mobile" id="mobileMenu"> <div class="container"> <a href="#home">Home <span>→</span></a> <a href="#services">Services <span>→</span></a> <a href="#about">About <span>→</span></a> <a href="#reviews">Reviews <span>→</span></a> <a href="#areas">Service Areas <span>→</span></a> <a href="#estimate">Contact <span>→</span></a> <div class="actions"> <a class="btn btn-secondary" href="tel:5551234567">Call Now</a> <a class="btn btn-primary" href="#estimate">Free Estimate</a> </div> </div> </div> </header> <main> <!-- HERO --> <section class="hero" id="home"> <div class="container hero-grid"> <div> <div class="badge-row"> <span class="eyebrow">● Trusted HVAC Experts in Dallas</span> <span class="pill" style="background:#fff;border:1px solid var(--line)">⭐ 4.9/5 • 500+ Reviews</span> </div> <h1>Comfort You<br>Can Count On.</h1> <p class="hero-desc">Fast, reliable heating and cooling services for your home. Our licensed HVAC professionals are ready when you need us — same-day service, upfront pricing, no surprises.</p> <div class="hero-ctas"> <a class="btn btn-primary" href="#estimate">Get a Free Estimate →</a> <a class="btn btn-ghost" href="tel:5551234567">Call (555) 123-4567</a> </div> <ul class="trust-mini"> <li><i>✓</i> Licensed & Insured</li> <li><i>✓</i> Same-Day Service</li> <li><i>✓</i> 24/7 Emergency Support</li> </ul> </div> <div class="hero-visual"> <div class="float-badge"><span class="live"></span> Available Now • Dallas</div> <div class="hero-img-wrap"> <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1169&auto=format&fit=crop" alt="HVAC technician servicing AC unit" loading="eager"> </div> <div class="float-card"> <div style="width:42px;height:42px;border-radius:12px;background:var(--primary);color:#fff;display:grid;place-items:center;font-weight:800">★</div> <div> <div class="stars">★★★★★</div> <b>4.9/5 Rating</b> <small>500+ Happy Customers in Dallas</small> </div> </div> </div> </div> </section> <!-- TRUST / REVIEW BAR --> <div class="trustbar"> <div class="container trustbar-grid"> <div class="trustbar-item"> <div class="trust-icon">★</div> <div><b>4.9/5 Rating</b><span>500+ Google Reviews</span></div> </div> <div class="trustbar-item"> <div class="trust-icon">👨‍👩‍👧‍👦</div> <div><b>500+</b><span>Happy Customers</span></div> </div> <div class="trustbar-item"> <div class="trust-icon">◷</div> <div><b>10+ Years</b><span>Experience</span></div> </div> <div class="trustbar-item"> <div class="trust-icon">⚡</div> <div><b>24/7</b><span>Emergency Service</span></div> </div> </div> </div> <!-- SERVICES SECTION --> <section class="section services" id="services"> <div class="container"> <div class="section-head"> <div> <span class="eyebrow">Our Services</span> <h2 class="h2" style="margin-top:14px">Our HVAC Services</h2> </div> <p class="p">Professional heating and cooling solutions designed to keep your home comfortable all year — installed right, serviced fast.</p> </div> <div class="grid-3"> <div class="card"> <div class="card-top"><div class="card-icon">❄️</div><span class="pill" style="background:var(--surface-2)">Most Requested</span></div> <h3>AC Repair</h3> <p>Rapid diagnostics and lasting repairs for all makes and models. We restore cooling fast without upselling.</p> <a class="link" href="#estimate">Learn More</a> </div> <div class="card"> <div class="card-top"><div class="card-icon">🏠</div></div> <h3>AC Installation</h3> <p>High-efficiency systems sized correctly for your home, installed by certified pros with clean workmanship.</p> <a class="link" href="#estimate">Learn More</a> </div> <div class="card"> <div class="card-top"><div class="card-icon">🔥</div></div> <h3>Heating & Furnace</h3> <p>Furnace repair, replacement, and tune-ups to keep your family warm and safe through Texas winters.</p> <a class="link" href="#estimate">Learn More</a> </div> <div class="card"> <div class="card-top"><div class="card-icon">🛠️</div></div> <h3>HVAC Maintenance</h3> <p>Prevent breakdowns and cut energy bills with seasonal maintenance plans and priority scheduling.</p> <a class="link" href="#estimate">Learn More</a> </div> <div class="card"> <div class="card-top"><div class="card-icon">🌬️</div></div> <h3>Indoor Air Quality</h3> <p>Purifiers, humidifiers, and duct solutions that remove allergens and improve comfort in every room.</p> <a class="link" href="#estimate">Learn More</a> </div> <div class="card" style="border-color:#FFD9D9;background:linear-gradient(180deg,#FFF8F8,#FFFFFF)"> <div class="card-top"><div class="card-icon" style="background:#FFE9E9;border-color:#FFD2D2">🚨</div><span class="pill" style="background:#0B1A33;color:#fff">24/7</span></div> <h3>Emergency HVAC</h3> <p>System down? We dispatch licensed techs around the clock — nights, weekends, and holidays.</p> <a class="link" href="tel:5551234567">Call Emergency Line</a> </div> </div> </div> </section> <!-- WHY CHOOSE US --> <section class="section why" id="why"> <div class="container why-grid"> <div> <span class="eyebrow dark">Why Choose Us</span> <h2 class="h2" style="margin-top:14px">Why Homeowners Choose Vexo HVAC</h2> <p class="p" style="margin-top:14px">We're a local Dallas company built on referrals. No call centers, no gimmicks — just licensed pros who show up on time and stand behind their work.</p> <div class="why-list"> <div class="why-item"><div class="why-icon">🛡️</div><b>Licensed & Insured</b><p>Certified professionals you can trust. Background-checked technicians.</p></div> <div class="why-item"><div class="why-icon">⚡</div><b>Fast Response</b><p>Quick service when your comfort can't wait. Same-day available.</p></div> <div class="why-item"><div class="why-icon">💲</div><b>Upfront Pricing</b><p>No hidden fees or surprises. Written estimates before work begins.</p></div> <div class="why-item"><div class="why-icon">★</div><b>100% Satisfaction</b><p>We stand behind every job we complete with a workmanship guarantee.</p></div> </div> </div> <div class="why-img"> <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1170&auto=format&fit=crop" alt="HVAC technician at work" loading="lazy"> </div> </div> </section> <!-- EMERGENCY HVAC CTA --> <section class="emergency"> <div class="container emergency-grid"> <div> <h2>HVAC Emergency? We're Ready 24/7.</h2> <p>When your heating or cooling system stops working, you shouldn't have to wait. Our team is available around the clock in Dallas-Fort Worth.</p> </div> <div class="emergency-actions"> <a class="btn btn-ghost" style="background:#fff" href="tel:5551234567">Call Now</a> <a class="btn btn-primary" href="#estimate">Request Emergency Service</a> </div> </div> </section> <!-- ABOUT COMPANY --> <section class="section" id="about"> <div class="container about-grid"> <div class="about-media"> <div class="about-main-img"> <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1170&auto=format&fit=crop" alt="Modern American home with AC" loading="lazy"> </div> <div class="exp-badge"><b>10+</b><span>Years of<br>Experience</span></div> </div> <div> <span class="eyebrow">About Vexo HVAC</span> <h2 class="h2" style="margin-top:14px">Local HVAC Experts You Can Trust</h2> <p class="p" style="margin-top:14px">Vexo HVAC is a Dallas-based residential HVAC company serving homeowners across DFW since 2014. We're not a franchise — we're your neighbors. Every technician is licensed, insured, and trained to work on all major brands including Trane, Carrier, Lennox, and Daikin.</p> <p class="p" style="margin-top:12px">We specialize in AC repair and installation, furnace service, and preventative maintenance that actually prevents problems. Our focus is simple: honest advice, quality installs, and service that earns 5-star reviews.</p> <ul class="checks"> <li><i>✓</i> Local Dallas technicians, not subcontractors</li> <li><i>✓</i> Licensed, insured, and background-checked</li> <li><i>✓</i> Residential HVAC only — we know homes</li> <li><i>✓</i> Upfront pricing & 100% satisfaction guarantee</li> </ul> <div style="margin-top:22px;display:flex;gap:12px;flex-wrap:wrap"> <a class="btn btn-secondary" href="#estimate">Meet Our Team</a> <a class="btn btn-ghost" href="#reviews">See Our Work</a> </div> </div> </div> </section> <!-- BEFORE / AFTER OR PROJECT SHOWCASE --> <section class="section showcase"> <div class="container"> <div class="section-head"> <h2 class="h2">Quality Work. Real Results.</h2> <p class="p">Recent projects completed by our Dallas team — clean installs, code-compliant, built to last.</p> </div> <div class="show-grid"> <div class="project"> <div class="project-img"><span class="project-tag">Dallas • 2026</span><img src="https://images.unsplash.com/photo-1631541909061-71e349d1f203?q=80&w=1210&auto=format&fit=crop" alt="AC Installation project" loading="lazy"></div> <div class="project-body"><h3>High-Efficiency AC Installation</h3><p>16 SEER2 replacement for 2,400 sq ft home in Lake Highlands. Cut cooling costs by 28%.</p></div> </div> <div class="project"> <div class="project-img"><span class="project-tag">Plano • 2026</span><img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=1170&auto=format&fit=crop" alt="HVAC Replacement" loading="lazy"></div> <div class="project-body"><h3>Complete HVAC Replacement</h3><p>Gas furnace + AC + new duct sealing. Same-day install with permit and inspection.</p></div> </div> <div class="project"> <div class="project-img"><span class="project-tag">Frisco • 2026</span><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1170&auto=format&fit=crop" alt="Heating System Upgrade" loading="lazy"></div> <div class="project-body"><h3>Heating System Upgrade</h3><p>Furnace retrofit with smart thermostat and IAQ upgrade for allergy-prone family.</p></div> </div> </div> </div> </section> <!-- CUSTOMER REVIEWS --> <section class="section" id="reviews"> <div class="container"> <div class="reviews-head"> <div> <span class="eyebrow">Customer Reviews</span> <h2 class="h2" style="margin-top:14px">What Our Customers Say</h2> </div> <div class="rating-badge"> <div class="google"><i>G</i> Google Rating</div> <div style="width:1px;height:20px;background:var(--line)"></div> <div style="display:flex;align-items:center;gap:6px"><span style="color:#F59E0B">★★★★★</span><b>4.9/5</b><span style="font-size:12px;color:var(--muted)">(500+)</span></div> </div> </div> <div class="rev-grid"> <div class="rev"> <div class="stars">★★★★★</div> <p class="quote">"Vexo HVAC was fast, professional, and honest. Our AC died at 6pm in July — they were here by 8pm and fixed same day. No upsell."</p> <div class="meta"><div class="avatar">S</div><div><b>Sarah M.</b><small>Dallas, TX • AC Repair</small></div></div> </div> <div class="rev"> <div class="stars">★★★★★</div> <p class="quote">"Best HVAC experience we've had. Upfront quote, clean install, and they walked me through the thermostat. House is cooling perfectly."</p> <div class="meta"><div class="avatar">J</div><div><b>James T.</b><small>Plano, TX • AC Installation</small></div></div> </div> <div class="rev"> <div class="stars">★★★★★</div> <p class="quote">"Called 3 companies. Vexo actually answered, came out same afternoon, and honored their estimate. Licensed techs who know what they're doing."</p> <div class="meta"><div class="avatar">R</div><div><b>Rachel K.</b><small>Frisco, TX • Emergency Service</small></div></div> </div> </div> </div> </section> <!-- SERVICE AREAS --> <section class="section areas" id="areas"> <div class="container"> <div style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:end"> <div> <span class="eyebrow dark">Service Areas</span> <h2 class="h2" style="margin-top:14px">Serving Dallas & Surrounding Areas</h2> </div> <p style="color:#9FB3D6;max-width:42ch;font-size:14px">Local techs dispatched from Dallas. Same-day service available across DFW. Fully licensed in Texas.</p> </div> <div class="areas-grid"> <div class="area"><b>Dallas</b><span>Primary</span></div> <div class="area"><b>Plano</b><span>24/7</span></div> <div class="area"><b>Frisco</b><span>24/7</span></div> <div class="area"><b>Irving</b><span>Same-Day</span></div> <div class="area"><b>McKinney</b><span>Same-Day</span></div> <div class="area"><b>Richardson</b><span>Same-Day</span></div> <div class="area"><b>Garland</b><span>Same-Day</span></div> <div class="area"><b>Carrollton</b><span>Same-Day</span></div> </div> <div class="areas-foot">Don't see your area? <a href="#estimate" style="color:#fff;text-decoration:underline;text-underline-offset:3px">Contact us to check availability.</a> We often service nearby cities.</div> </div> </section> <!-- FREE ESTIMATE CTA / FORM --> <section class="section estimate" id="estimate"> <div class="container"> <div class="estimate-wrap"> <div class="estimate-copy"> <span class="eyebrow dark">Free Estimate</span> <h2 style="margin-top:14px">Ready to Get Your Comfort Back?</h2> <p style="margin-top:12px;color:#9FB3D6;font-size:15px;line-height:1.7">Request your free HVAC estimate today. Licensed Dallas pros, upfront pricing, no obligation.</p> <ul> <li><i>✓</i> Free, no-obligation estimate</li> <li><i>⚡</i> Same-day appointments available</li> <li><i>🛡️</i> Licensed, insured & background-checked</li> <li><i>★</i> 4.9/5 from 500+ homeowners</li> </ul> <div style="margin-top:24px;padding:14px;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;gap:12px;align-items:center"> <div style="width:44px;height:44px;border-radius:12px;background:#fff;color:var(--primary);display:grid;place-items:center;font-weight:800">📞</div> <div><small style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#9FB3D6;font-weight:700">Prefer to call?</small><div style="font-weight:800;font-size:16px;color:#fff;margin-top:2px">(555) 123-4567</div></div> </div> </div> <form class="estimate-form" id="estimateForm" novalidate> <div class="form-grid"> <div class="field"><label>First Name *</label><input class="input" name="firstName" placeholder="John" required></div> <div class="field"><label>Last Name *</label><input class="input" name="lastName" placeholder="Smith" required></div> <div class="field"><label>Phone *</label><input class="input" name="phone" type="tel" placeholder="(555) 123-4567" required></div> <div class="field"><label>Email</label><input class="input" name="email" type="email" placeholder="john@email.com"></div> <div class="field"><label>ZIP Code *</label><input class="input" name="zip" placeholder="75201" required></div> <div class="field"><label>Service Needed *</label> <select class="input" name="service" required> <option value="" disabled selected>Select a service</option> <option>AC Repair</option> <option>AC Installation</option> <option>Heating</option> <option>HVAC Maintenance</option> <option>Emergency Service</option> <option>Other</option> </select> </div> <div class="field full"><label>Message</label><textarea class="input" name="message" placeholder="Tell us about your HVAC issue, system type, home size..."></textarea></div> </div> <div class="form-foot"> <button class="btn btn-primary" type="submit" style="height:50px;padding:0 24px">Get My Free Estimate →</button> <small>By submitting, you agree to our Privacy Policy. We never share your info. Licensed HVAC contractors will contact you within 15 minutes during business hours.</small> </div> <div class="notice" id="formNotice">Thanks! Your estimate request was received. Our Dallas team will call you within 15 minutes.</div> </form> </div> </div> </section> </main> <!-- FOOTER --> <footer class="footer"> <div class="container footer-top"> <div> <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px"><div class="brand-mark" style="background:#fff;color:var(--primary)">V</div><b style="color:#fff;font-size:18px;letter-spacing:-.02em">Vexo HVAC</b></div> <p>Dallas-based residential HVAC experts. Licensed, insured, and trusted by 500+ homeowners. Fast, honest service with upfront pricing and workmanship guarantee.</p> <div class="social"> <a href="#" aria-label="Facebook">f</a> <a href="#" aria-label="Instagram">◎</a> <a href="#" aria-label="Google">G</a> <a href="#" aria-label="Yelp">★</a> </div> </div> <div> <b class="title">Quick Links</b> <ul> <li><a href="#home">Home</a></li> <li><a href="#services">Services</a></li> <li><a href="#about">About</a></li> <li><a href="#reviews">Reviews</a></li> <li><a href="#estimate">Contact</a></li> </ul> </div> <div> <b class="title">Services</b> <ul> <li><a href="#services">AC Repair</a></li> <li><a href="#services">AC Installation</a></li> <li><a href="#services">Heating</a></li> <li><a href="#services">Maintenance</a></li> <li><a href="#services">Emergency HVAC</a></li> </ul> </div> <div> <b class="title">Contact</b> <ul> <li>Dallas, TX 75201</li> <li><a href="tel:5551234567" style="color:#fff;font-weight:700">(555) 123-4567</a></li> <li><a href="mailto:info@vexohvac.com">info@vexohvac.com</a></li> <li style="margin-top:8px"><span class="pill" style="background:rgba(24,182,255,.15);border:1px solid rgba(24,182,255,.25);color:#7DD4FF">● 24/7 Emergency Service</span></li> </ul> </div> </div> <div class="container footer-bottom"> <span>© 2026 Vexo HVAC. All Rights Reserved. Licensed & Insured — TX LIC #HVAC-12345</span> <span><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms of Service</a></span> </div> </footer> <div class="toast" id="toast">Opening phone dialer...</div> <script> const ham = document.getElementById('hamburger'); const mob = document.getElementById('mobileMenu'); ham.addEventListener('click', ()=>{ ham.classList.toggle('active'); mob.classList.toggle('open'); }); document.querySelectorAll('#mobileMenu a').forEach(a=>{ a.addEventListener('click',()=>{ ham.classList.remove('active'); mob.classList.remove('open'); }); }); const form = document.getElementById('estimateForm'); const notice = document.getElementById('formNotice'); const toast = document.getElementById('toast'); function showToast(msg){ toast.textContent = msg; toast.classList.add('show'); setTimeout(()=>toast.classList.remove('show'),2600); } form.addEventListener('submit', (e)=>{ e.preventDefault(); const fd = new FormData(form); if(!fd.get('firstName') ||!fd.get('lastName') ||!fd.get('phone') ||!fd.get('zip') ||!fd.get('service')){ showToast('Please fill required fields.'); return; } notice.style.display='block'; form.reset(); showToast('Estimate request sent — we will call you shortly!'); notice.scrollIntoView({behavior:'smooth', block:'center'}); }); document.querySelectorAll('a[href^="tel:"]').forEach(a=>{ a.addEventListener('click',()=>showToast('Opening phone dialer...')); }); const sections = document.querySelectorAll('section'); const navLinks = document.querySelectorAll('.nav-links a'); window.addEventListener('scroll', ()=>{ let cur=''; sections.forEach(s=>{ const top = s.offsetTop - 120; if(window.scrollY >= top) cur = s.getAttribute('id'); }); navLinks.forEach(l=>{ l.classList.toggle('active', l.getAttribute('href') === '#'+cur); }); },{passive:true});
+</script> </body>
+</html>
