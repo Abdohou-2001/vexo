@@ -1,35 +1,31 @@
 "use strict";
 
 /**
- * VEXO HVAC - js/app.js
- * Frontend behavior only for public index.html
- * No backend, no Firebase, no admin logic
- * Uses only existing IDs/classes from approved index.html
- */
-
+• VEXO HVAC - js/app.js • Frontend behavior only for public index.html • No backend, no Firebase, no admin logic • Uses only existing IDs/classes from approved index.html
+ */ 
 document.addEventListener("DOMContentLoaded", () => {
-  /* ==================================================
-     1. DOM REFERENCES - only elements that exist in index.html
-  ================================================== */
-  const hamburger = document.getElementById("hamburger");
-  const mobileMenu = document.getElementById("mobileMenu");
-  const estimateForm = document.getElementById("estimateForm");
-  const formNotice = document.getElementById("formNotice");
-  const toast = document.getElementById("toast");
-  const navLinks = document.querySelectorAll(".nav-links a");
-  const sections = document.querySelectorAll("section[id]");
-  const telLinks = document.querySelectorAll('a[href^="tel:"]');
-  const anchorLinks = document.querySelectorAll('a[href^="#"]');
+  /* ==============================================
+1. DOM REFERENCES - only elements that exist in index.html
+============================================== */
+const hamburger = document.getElementById("hamburger");
+const mobileMenu = document.getElementById("mobileMenu");
+const estimateForm = document.getElementById("estimateForm");
+const formNotice = document.getElementById("formNotice");
+const toast = document.getElementById("toast");
+const navLinks = document.querySelectorAll(".nav-links a");
+const sections = document.querySelectorAll("section");
+const telLinks = document.querySelectorAll('a[href^="tel:"]');
+const anchorLinks = document.querySelectorAll('a[href^="#"]');
 
-  /* ==================================================
-     2. GLOBAL STATE
-  ================================================== */
-  let toastTimeout = null;
+  /* ==================================================[id]
+2. GLOBAL STATE
+============================================== */
+let toastTimeout = null;
 
-  /* ==================================================
-     3. UTILITY FUNCTIONS
-  ================================================== */
-  const isElement = (el) => el instanceof HTMLElement;
+  /* ==============================================
+3. UTILITY FUNCTIONS
+============================================== */
+const isElement = (el) => el instanceof HTMLElement;
 
   const safeAddClass = (el, className) => {
     if (isElement(el)) el.classList.add(className);
@@ -39,11 +35,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (isElement(el)) el.classList.remove(className);
   };
 
-  /* ==================================================
-     4. TOAST - uses existing.toast and.show
-  ================================================== */
-  function showToast(message) {
-    if (!isElement(toast)) return;
+  /* ==============================================
+4. TOAST - uses existing.toast and.show
+============================================== */
+function showToast(message) {
+if (!isElement(toast)) return;
 
     // Prefer textContent for safety - no unsanitized HTML injection
     toast.textContent = message || "Done";
@@ -59,11 +55,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 2600);
   }
 
-  /* ==================================================
-     5. MOBILE MENU - uses.hamburger,.mobile,.active,.open
-  ================================================== */
-  function initMobileMenu() {
-    if (!isElement(hamburger) ||!isElement(mobileMenu)) return;
+  /* ==============================================
+5. MOBILE MENU - uses.hamburger,.mobile,.active,.open
+============================================== */
+function initMobileMenu() {
+if (!isElement(hamburger) ||!isElement(mobileMenu)) return;
 
     // Accessibility initial state
     if (!hamburger.hasAttribute("aria-expanded")) {
@@ -125,11 +121,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ==================================================
-     6. DESKTOP NAVIGATION - active state on scroll
-  ================================================== */
-  function initDesktopNav() {
-    if (!navLinks.length ||!sections.length) return;
+  /* ==============================================
+6. DESKTOP NAVIGATION - active state on scroll
+============================================== */
+function initDesktopNav() {
+if (!navLinks.length ||!sections.length) return;
 
     let ticking = false;
 
@@ -168,11 +164,11 @@ document.addEventListener("DOMContentLoaded", () => {
     updateActiveNav();
   }
 
-  /* ==================================================
-     7. SMOOTH SCROLLING - respect existing CSS smooth
-  ================================================== */
-  function initSmoothScrolling() {
-    if (!anchorLinks.length) return;
+  /* ==============================================
+7. SMOOTH SCROLLING - respect existing CSS smooth
+============================================== */
+function initSmoothScrolling() {
+if (!anchorLinks.length) return;
 
     // Only handle same-page anchors that exist in DOM
     anchorLinks.forEach((link) => {
@@ -195,11 +191,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ==================================================
-     8. FORM VALIDATION - uses actual fields in index.html
-  ================================================== */
-  function initFormValidation() {
-    if (!isElement(estimateForm)) return;
+  /* ==============================================
+8. FORM VALIDATION - uses actual fields in index.html
+============================================== */
+function initFormValidation() {
+if (!isElement(estimateForm)) return;
 
     const getField = (name) => estimateForm.elements.namedItem(name);
 
@@ -211,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const service = getField("service");
 
     // Real-time cleanup of error state
-    const fields = [firstName, lastName, phone, email, zip, service].filter(Boolean);
+    const fields =.filter(Boolean);
     fields.forEach((field) => {
       field.addEventListener("input", () => {
         field.setCustomValidity("");
@@ -322,11 +318,11 @@ document.addEventListener("DOMContentLoaded", () => {
       return isValid;
     }
 
-    /* ==================================================
-       9. FORM SUBMISSION - frontend only, no backend
-    ================================================== */
-    estimateForm.addEventListener("submit", (e) => {
-      e.preventDefault();
+    /* ==================================================[firstName][lastName][phone][email][zip][service]
+9. FORM SUBMISSION - frontend only, no backend
+============================================== */
+estimateForm.addEventListener("submit", (e) => {
+e.preventDefault();
 
       const valid = validateForm();
       if (!valid) {
@@ -355,11 +351,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ==================================================
-     10. OTHER EXISTING INTERACTIONS - tel: links
-  ================================================== */
-  function initTelLinks() {
-    if (!telLinks.length) return;
+  /* ==============================================
+10. OTHER EXISTING INTERACTIONS - tel: links
+============================================== */
+function initTelLinks() {
+if (!telLinks.length) return;
 
     telLinks.forEach((link) => {
       link.addEventListener("click", () => {
@@ -368,15 +364,68 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ==================================================
-     11. INITIALIZATION
-  ================================================== */
-  try {
-    initMobileMenu();
-  } catch (err) {
-    // Keep other features working if mobile menu fails
-    console.warn("Mobile menu init failed:", err);
+  /* ==============================================
+11. HERO VIDEO - minimal support for assets/videos/video.mp4 ◦ Does NOT recreate/inject video ◦ Does NOT replace with image ◦ Preserves autoplay muted loop playsinline • Lightweight parallax, respects reduced-motion
+  ============================================== */
+  function initHeroVideo() {
+    const heroVideo = document.querySelector(".hero-video");
+    const hero = document.getElementById("home");
+    if (!isElement(heroVideo) ||!isElement(hero)) return; 
+    // Ensure video tries to autoplay without breaking muted/loop/playsinline
+    // Browsers may block; catch silently
+    try {
+      const playPromise = heroVideo.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(function () {
+          // Autoplay blocked - poster will remain, no UI change needed
+        });
+      }
+    } catch (e) {
+      // Ignore
+    }
+
+    // Respect reduced-motion preference
+    const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (reduceMotionQuery.matches) return;
+
+    let ticking = false;
+    const speed = 0.22;
+
+    const onScroll = function () {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(function () {
+        const rect = hero.getBoundingClientRect();
+        if (rect.bottom > 0 && rect.top < window.innerHeight) {
+          const offset = window.scrollY * speed;
+          heroVideo.style.transform = "translate3d(0," + offset * 0.35 + "px,0) scale(1.06)";
+        }
+        ticking = false;
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    // Disable parallax listener if user enables reduced-motion later
+    if (typeof reduceMotionQuery.addEventListener === "function") {
+      reduceMotionQuery.addEventListener("change", function (e) {
+        if (e.matches) {
+          heroVideo.style.transform = "";
+          window.removeEventListener("scroll", onScroll);
+        }
+      });
+    }
   }
+
+  /* ==============================================
+12. INITIALIZATION
+============================================== */
+try {
+initMobileMenu();
+} catch (err) {
+console.warn("Mobile menu init failed:", err);
+}
 
   try {
     initDesktopNav();
@@ -400,5 +449,11 @@ document.addEventListener("DOMContentLoaded", () => {
     initTelLinks();
   } catch (err) {
     console.warn("Tel links init failed:", err);
+  }
+
+  try {
+    initHeroVideo();
+  } catch (err) {
+    console.warn("Hero video init failed:", err);
   }
 });
