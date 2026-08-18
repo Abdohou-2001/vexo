@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Dashboard | VEXO HVAC Admin</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body class="admin-body">
+
+  <div class="admin-layout" id="adminLayout">
+
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar" id="adminSidebar" aria-label="Admin Navigation">
+      <div class="admin-sidebar-inner">
+        <div class="admin-sidebar-header">
+          <a href="index.html" class="admin-brand-mark">
+            <span class="admin-brand-icon">V</span>
+            <span class="admin-brand-text-wrap">
+              <span class="admin-brand-text">VEXO</span>
+              <span class="admin-brand-sub">HVAC</span>
+            </span>
+          </a>
+          <button type="button" class="admin-sidebar-close" id="sidebarClose" aria-label="Close navigation menu">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+
+        <div class="admin-sidebar-meta">
+          <span class="admin-sidebar-meta-label">Professional Management</span>
+          <span class="admin-sidebar-meta-location">Dallas-Fort Worth • 24/7</span>
+        </div>
+
+        <nav class="admin-nav" aria-label="Primary">
+          <ul class="admin-nav-list" role="list">
+            <li class="admin-nav-item">
+              <a href="index.html" class="admin-nav-link is-active" aria-current="page">
+                <span class="admin-nav-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+                </span>
+                <span class="admin-nav-text">Dashboard</span>
+              </a>
+            </li>
+            <li class="admin-nav-item">
+              <a href="pages/leads.html" class="admin-nav-link" id="navLeads">
+                <span class="admin-nav-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6"/><path d="M23 11v2"/><path d="M17 11v2"/></svg>
+                </span>
+                <span class="admin-nav-text">Leads</span>
+                <span class="admin-nav-badge" id="leadsBadge" style="display:none;">0</span>
+              </a>
+            </li>
+            <li class="admin-nav-item">
+              <a href="pages/services.html" class="admin-nav-link">
+                <span class="admin-nav-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                </span>
+                <span class="admin-nav-text">Services</span>
+              </a>
+            </li>
+            <li class="admin-nav-item">
+              <a href="pages/reviews.html" class="admin-nav-link">
+                <span class="admin-nav-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </span>
+                <span class="admin-nav-text">Reviews</span>
+              </a>
+            </li>
+            <li class="admin-nav-item">
+              <a href="pages/gallery.html" class="admin-nav-link">
+                <span class="admin-nav-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                </span>
+                <span class="admin-nav-text">Gallery</span>
+              </a>
+            </li>
+            <li class="admin-nav-item">
+              <a href="pages/service-areas.html" class="admin-nav-link">
+                <span class="admin-nav-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                </span>
+                <span class="admin-nav-text">Service Areas</span>
+              </a>
+            </li>
+            <li class="admin-nav-item">
+              <a href="pages/settings.html" class="admin-nav-link" id="navSettings">
+                <span class="admin-nav-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 9 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 15 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/></svg>
+                </span>
+                <span class="admin-nav-text">Settings</span>
+              </a>
+            </li>
+          </ul>
+
+          <div class="admin-nav-divider" aria-hidden="true"></div>
+
+          <ul class="admin-nav-list admin-nav-list-bottom" role="list">
+            <li class="admin-nav-item">
+              <a href="../index.html" class="admin-nav-link admin-nav-link-muted">
+                <span class="admin-nav-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                </span>
+                <span class="admin-nav-text">Back to website</span>
+              </a>
+            </li>
+            <li class="admin-nav-item">
+              <button type="button" class="admin-nav-link admin-nav-link-button" id="logoutBtn" data-action="logout">
+                <span class="admin-nav-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                </span>
+                <span class="admin-nav-text">Logout</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="admin-sidebar-footer">
+          <div class="admin-sidebar-user" id="adminUser">
+            <div class="admin-sidebar-user-avatar" aria-hidden="true">A</div>
+            <div class="admin-sidebar-user-info">
+              <span class="admin-sidebar-user-name" id="adminUserName">Admin</span>
+              <span class="admin-sidebar-user-email" id="adminUserEmail">loading...</span>
+            </div>
+          </div>
+          <p class="admin-sidebar-version">VEXO v1.0 • Licensed & Insured</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <div class="admin-main-wrap">
+      <!-- TOPBAR -->
+      <header class="admin-topbar" id="adminTopbar">
+        <div class="admin-topbar-left">
+          <button type="button" class="admin-topbar-menu" id="sidebarToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="adminSidebar">
+            <span class="admin-topbar-menu-icon" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </span>
+          </button>
+          <div class="admin-topbar-title-wrap">
+            <h1 class="admin-topbar-title">Dashboard</h1>
+            <p class="admin-topbar-subtitle">Welcome back — manage your HVAC operations</p>
+          </div>
+        </div>
+
+        <div class="admin-topbar-right">
+          <div class="admin-topbar-actions">
+            <a href="../index.html" class="admin-topbar-link">View website</a>
+            <button type="button" class="admin-topbar-logout" id="topbarLogoutBtn" data-action="logout">Logout</button>
+          </div>
+          <div class="admin-topbar-user" id="topbarUser" aria-label="Admin account">
+            <span class="admin-topbar-user-name" id="topbarUserName">Admin</span>
+            <span class="admin-topbar-user-avatar" id="topbarUserAvatar" aria-hidden="true">A</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- CONTENT SHELL -->
+      <main class="admin-content" id="adminContent">
+        <div class="admin-content-inner">
+
+          <!-- Shell placeholder - real dashboard in pages/dashboard.html -->
+          <div class="admin-shell-placeholder">
+            <div class="admin-welcome-card">
+              <div class="admin-welcome-card-head">
+                <h2 class="admin-welcome-title">Dashboard Shell Ready</h2>
+                <span class="admin-badge admin-badge-live">Live</span>
+              </div>
+              <p class="admin-welcome-text">
+                This is the main Admin layout. The full dashboard with stats, recent leads, and quick actions will be loaded from <code>admin/pages/dashboard.html</code>. This shell handles sidebar, topbar, auth, and responsive navigation.
+              </p>
+              <div class="admin-welcome-actions">
+                <a href="pages/leads.html" class="admin-btn admin-btn-primary">Go to Leads</a>
+                <a href="pages/settings.html" class="admin-btn admin-btn-ghost">Open Settings</a>
+              </div>
+            </div>
+
+            <div class="admin-placeholder-grid">
+              <div class="admin-placeholder-card"></div>
+              <div class="admin-placeholder-card"></div>
+              <div class="admin-placeholder-card"></div>
+              <div class="admin-placeholder-card"></div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+
+      <footer class="admin-footer">
+        <span>© 2026 Vexo HVAC LLC — Dallas, TX • Licensed & Insured • 24/7 Emergency</span>
+        <span class="admin-footer-sep">•</span>
+        <span id="footerUserEmail">Protected by Firebase Auth</span>
+      </footer>
+    </div>
+
+    <!-- Mobile overlay -->
+    <div class="admin-sidebar-overlay" id="sidebarOverlay" aria-hidden="true"></div>
+  </div>
+
+  <!-- Toast for utils.js -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- Existing modules - order matters -->
+  <script type="module" src="../js/firebase.js"></script>
+  <script type="module" src="../js/config.js"></script>
+  <script type="module" src="../js/utils.js"></script>
+  <script type="module" src="../js/auth.js"></script>
+  <script type="module" src="../js/settings.js"></script>
+  <script type="module" src="../js/leads.js"></script>
+  <script type="module" src="../js/storage.js"></script>
+
+  <!-- Minimal shell behavior - no auth logic duplication -->
+  <script type="module">
+    const sidebar = document.getElementById('adminSidebar');
+    const toggle = document.getElementById('sidebarToggle');
+    const closeBtn = document.getElementById('sidebarClose');
+    const overlay = document.getElementById('sidebarOverlay');
+    const layout = document.getElementById('adminLayout');
+
+    function openSidebar() {
+      sidebar?.classList.add('is-open');
+      overlay?.classList.add('is-visible');
+      layout?.classList.add('sidebar-open');
+      toggle?.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeSidebar() {
+      sidebar?.classList.remove('is-open');
+      overlay?.classList.remove('is-visible');
+      layout?.classList.remove('sidebar-open');
+      toggle?.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    toggle?.addEventListener('click', () => {
+      if (sidebar?.classList.contains('is-open')) closeSidebar();
+      else openSidebar();
+    });
+    closeBtn?.addEventListener('click', closeSidebar);
+    overlay?.addEventListener('click', closeSidebar);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeSidebar();
+    });
+  </script>
+</body>
+</html>
