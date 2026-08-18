@@ -125,89 +125,409 @@ button{border:0;background:none;cursor:pointer}
   *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
 }
 
-/* =========================
-   HERO VIDEO SUPPORT - Added for assets/videos/video.mp4 integration
-   Premium, cinematic, preserves existing VEXO identity
-========================= */
+/* =========================================================
+   VEXO HERO — SCROLL VIDEO EXPERIENCE
+   Video appears first, content follows after video sequence
+   ========================================================= */
+
 .hero{
   position:relative;
-  overflow:hidden;
+  overflow:visible;
   isolation:isolate;
+  background:var(--background);
 }
+
+/* Hero becomes a vertical experience */
 .hero-grid{
   position:relative;
   z-index:2;
+  display:flex;
+  flex-direction:column;
 }
-.hero-visual{
+
+/* =========================================================
+   HERO COPY
+   The text will be controlled by JavaScript later.
+   ========================================================= */
+
+.hero-grid > div:first-child{
+  order:2;
   position:relative;
-  isolation:isolate;
-  z-index:2;
+  z-index:3;
+
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(40px);
+
+  transition:
+    opacity .7s ease,
+    transform .8s cubic-bezier(.22,1,.36,1),
+    visibility .7s ease;
 }
+
+/* JS will add this class when the video reaches the end */
+.hero.is-video-complete .hero-grid > div:first-child{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+
+
+/* =========================================================
+   VIDEO AREA
+   ========================================================= */
+
+.hero-visual{
+  order:1;
+  position:relative;
+  width:100%;
+  z-index:2;
+  isolation:isolate;
+
+  /*
+     Large cinematic area.
+     JavaScript will control the video progress.
+  */
+  min-height:100vh;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+
+/* Video container */
 .hero-img-wrap{
   position:relative;
+  width:100%;
+  height:100vh;
+
+  min-height:560px;
+
   overflow:hidden;
   isolation:isolate;
+
   background:var(--primary);
-  /* Prevents parallax transform from creating horizontal scrollbar */
+
+  border-radius:0;
+
   contain:paint;
 }
+
+
+/* =========================================================
+   VIDEO
+   ========================================================= */
+
 .hero-video{
   position:absolute;
   inset:0;
+
   width:100%;
   height:100%;
+
   object-fit:cover;
   object-position:center center;
+
   display:block;
-  will-change:transform;
-  transform:translateZ(0);
+
+  /*
+     IMPORTANT:
+     Do NOT use autoplay parallax transform anymore.
+     JS will control currentTime.
+  */
+  transform:none !important;
+
+  will-change:auto;
+
   backface-visibility:hidden;
 }
-/* Reuse existing overlay - ensure it sits above video but below badges */
-.hero-img-wrap::after{
-  z-index:1;
-}
-/* Keep badges/cards above video and overlay */
-.float-badge,
-.float-card{
-  position:absolute;
-  z-index:2;
-}
 
-/* Cinematic subtle overlay for readability if video is bright */
+
+/* =========================================================
+   VIDEO OVERLAY
+   ========================================================= */
+
 .hero-img-wrap::before{
   content:"";
+
   position:absolute;
   inset:0;
-  background:linear-gradient(180deg, rgba(11,26,51,0.08) 0%, rgba(11,26,51,0.22) 65%, rgba(11,26,51,0.32) 100%);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(11,26,51,.08) 0%,
+      rgba(11,26,51,.12) 45%,
+      rgba(11,26,51,.38) 100%
+    );
+
   z-index:1;
+
   pointer-events:none;
 }
 
-/* Ensure parallax transform does not cause overflow */
-.hero-video{
-  transform-origin:center center;
+
+/* Existing overlay */
+.hero-img-wrap::after{
+  z-index:2;
+  pointer-events:none;
 }
 
-/* Mobile - keep balanced height, prevent excessive tall hero */
+
+/* =========================================================
+   FLOATING BADGE
+   ========================================================= */
+
+.hero-visual .float-badge{
+  position:absolute;
+
+  top:32px;
+  left:32px;
+
+  z-index:5;
+
+  opacity:1;
+}
+
+
+/* =========================================================
+   FLOATING RATING CARD
+   ========================================================= */
+
+.hero-visual .float-card{
+  position:absolute;
+
+  left:32px;
+  right:32px;
+  bottom:32px;
+
+  z-index:5;
+
+  /*
+     Keep the card visible while video is playing.
+     We can later decide to reveal it only at the end.
+  */
+}
+
+
+/* =========================================================
+   VIDEO SEQUENCE MODE
+   ========================================================= */
+
+/*
+   While the video is playing:
+   keep the hero copy hidden.
+*/
+
+.hero:not(.is-video-complete) .hero-grid > div:first-child{
+  pointer-events:none;
+}
+
+
+/*
+   After video finishes:
+   content becomes interactive.
+*/
+
+.hero.is-video-complete .hero-grid > div:first-child{
+  pointer-events:auto;
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (min-width:769px){
+
+  .hero-grid{
+    display:flex;
+    flex-direction:column;
+  }
+
+  .hero-visual{
+    width:100%;
+    min-height:100vh;
+  }
+
+  .hero-img-wrap{
+    width:100%;
+    height:100vh;
+    min-height:650px;
+
+    border-radius:0;
+  }
+
+  .hero-grid > div:first-child{
+    padding:100px 0;
+    max-width:850px;
+    margin-inline:auto;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (min-width:769px) and (max-width:1100px){
+
+  .hero-img-wrap{
+    min-height:600px;
+    height:90vh;
+  }
+
+  .hero-grid > div:first-child{
+    padding:80px 24px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
 @media (max-width:768px){
-  .hero-img-wrap{
-    aspect-ratio:4/3;
-    min-height:320px;
-    max-height:520px;
+
+  .hero{
+    overflow:visible;
   }
-}
-@media (max-width:430px){
+
+  .hero-grid{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+  }
+
+  /*
+     VIDEO FIRST
+  */
+  .hero-visual{
+    order:1;
+
+    width:100%;
+    min-height:100vh;
+
+    display:block;
+  }
+
   .hero-img-wrap{
-    aspect-ratio:4/3.2;
-    min-height:280px;
+    width:100%;
+    height:100vh;
+
+    min-height:600px;
+
+    max-height:none;
+
+    border-radius:0;
+
+    overflow:hidden;
+  }
+
+  /*
+     Hero text comes AFTER video
+  */
+  .hero-grid > div:first-child{
+    order:2;
+
+    width:100%;
+
+    padding:70px 18px 80px;
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:translateY(35px);
+  }
+
+  .hero.is-video-complete .hero-grid > div:first-child{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+  }
+
+
+  /*
+     Mobile video
+  */
+  .hero-video{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+    object-position:center center;
+
+    transform:none !important;
+  }
+
+
+  /*
+     Badge positioning
+  */
+  .hero-visual .float-badge{
+    top:28px;
+    left:18px;
+    right:auto;
+
+    z-index:5;
+  }
+
+
+  /*
+     Rating card
+  */
+  .hero-visual .float-card{
+    left:18px;
+    right:18px;
+    bottom:24px;
+
+    z-index:5;
   }
 }
 
-/* Accessibility - respect reduced motion */
-@media (prefers-reduced-motion: reduce){
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width:430px){
+
+  .hero-img-wrap{
+    height:100vh;
+    min-height:560px;
+  }
+
+  .hero-grid > div:first-child{
+    padding:60px 18px 70px;
+  }
+
+  .hero-visual .float-badge{
+    top:20px;
+    left:16px;
+  }
+
+  .hero-visual .float-card{
+    left:16px;
+    right:16px;
+    bottom:18px;
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion:reduce){
+
+  .hero-grid > div:first-child{
+    transition:none;
+    transform:none;
+  }
+
   .hero-video{
     transform:none !important;
-    will-change:auto !important;
+    will-change:auto;
   }
 }
