@@ -1,0 +1,444 @@
+/* ======================================================
+   VEXO HVAC - main.css
+   Global / Base Styles Only
+   Preserves exact visual design from approved index.html
+   ====================================================== */
+
+/* ------------------------------------------------------
+   1. CSS VARIABLES - Extracted from approved design
+   ------------------------------------------------------ */
+:root {
+  /* Brand Colors - Exact from approved homepage */
+  --primary: #0B1A33;
+  --primary-2: #13294F;
+  --secondary: #172E5E;
+  --accent: #18B6FF;
+  --accent-2: #0EA5E9;
+  --accent-soft: #E6F7FF;
+
+  /* Neutrals */
+  --background: #F7F9FC;
+  --surface: #FFFFFF;
+  --surface-2: #F1F5F9;
+  --text: #0F172A;
+  --muted: #64748B;
+  --muted-2: #94A3B8;
+  --line: #E2E8F0;
+  --line-2: #EEF2F7;
+
+  /* Radius - reusable */
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+  --radius: var(--radius-lg);
+
+  /* Shadows - from approved design */
+  --shadow-sm: 0 1px 2px rgba(11, 26, 51, 0.06), 0 4px 12px rgba(11, 26, 51, 0.04);
+  --shadow-md: 0 12px 24px rgba(11, 26, 51, 0.08), 0 2px 8px rgba(11, 26, 51, 0.06);
+  --shadow-lg: 0 24px 48px rgba(11, 26, 51, 0.12), 0 8px 24px rgba(11, 26, 51, 0.08);
+  --shadow: var(--shadow-md);
+
+  /* Layout */
+  --container-width: 1240px;
+  --max: var(--container-width);
+
+  /* Transitions */
+  --transition-fast: 0.18s ease;
+  --transition-normal: 0.25s ease;
+  --transition-slow: 0.35s ease;
+}
+
+/* ------------------------------------------------------
+   2. CSS RESET
+   ------------------------------------------------------ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ------------------------------------------------------
+   3. HTML & BODY BASE
+   ------------------------------------------------------ */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 16px;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ------------------------------------------------------
+   4. GLOBAL TYPOGRAPHY
+   ------------------------------------------------------ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: inherit;
+  color: var(--text);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.h3 {
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.section-title {
+  margin-top: 14px;
+}
+
+small {
+  font-size: 0.875em;
+}
+
+strong, b {
+  font-weight: 700;
+}
+
+/* ------------------------------------------------------
+   5. GLOBAL LINKS
+   ------------------------------------------------------ */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+a:hover {
+  color: var(--text);
+}
+
+/* ------------------------------------------------------
+   6. IMAGES
+   ------------------------------------------------------ */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+img[width] {
+  height: auto;
+}
+
+/* ------------------------------------------------------
+   7. CONTAINERS / GLOBAL LAYOUT
+   ------------------------------------------------------ */
+.container {
+  width: min(calc(100% - 32px), var(--max));
+  margin-inline: auto;
+}
+
+.section {
+  padding: 88px 0;
+}
+
+.section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+
+.section-head p {
+  max-width: 52ch;
+}
+
+/* ------------------------------------------------------
+   8. BUTTONS BASE
+   ------------------------------------------------------ */
+button {
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 48px;
+  padding: 0 22px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 15px;
+  white-space: nowrap;
+  transition: var(--transition-normal);
+  cursor: pointer;
+  border: 1px solid transparent;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  text-align: center;
+  line-height: 1;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--primary);
+  box-shadow: 0 6px 18px rgba(24, 182, 255, 0.35);
+}
+
+.btn-primary:hover {
+  background: #1AC0FF;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px rgba(24, 182, 255, 0.4);
+}
+
+.btn-secondary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background: var(--primary-2);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: #fff;
+  border-color: var(--line);
+  color: var(--text);
+}
+
+.btn-ghost:hover {
+  border-color: var(--text);
+  background: #fff;
+}
+
+.btn-white {
+  background: #fff;
+  border-color: #fff;
+  color: var(--primary);
+}
+
+.btn-sm {
+  height: 40px;
+  padding: 0 16px;
+  font-size: 14px;
+  border-radius: 10px;
+}
+
+.btn-form {
+  height: 50px;
+  padding: 0 24px;
+}
+
+/* ------------------------------------------------------
+   9. GLOBAL UTILITIES (Eyebrow / Pill)
+   ------------------------------------------------------ */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+  background: var(--accent-soft);
+  border: 1px solid #D6EEFF;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+}
+
+.eyebrow.dark {
+  background: rgba(24, 182, 255, 0.12);
+  border-color: rgba(24, 182, 255, 0.25);
+  color: #7DD4FF;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  background: #fff;
+  border: 1px solid var(--line);
+}
+
+.pill-light {
+  background: #fff;
+  border: 1px solid var(--line);
+}
+
+.pill-muted {
+  background: var(--surface-2);
+  border: 1px solid var(--line-2);
+}
+
+.pill-dark {
+  background: #0B1A33;
+  color: #fff;
+  border-color: #0B1A33;
+}
+
+.pill-accent {
+  background: rgba(24, 182, 255, 0.15);
+  border: 1px solid rgba(24, 182, 255, 0.25);
+  color: #7DD4FF;
+}
+
+/* ------------------------------------------------------
+   10. BASIC FORM ELEMENT NORMALIZATION
+   ------------------------------------------------------ */
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+.field label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #334155;
+}
+
+.input {
+  height: 46px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: #fff;
+  padding: 0 14px;
+  font-size: 14px;
+  outline: 0;
+  transition: var(--transition-fast);
+  width: 100%;
+  line-height: 1;
+}
+
+.input:focus {
+  border-color: var(--accent-2);
+  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.15);
+}
+
+.textarea {
+  height: auto;
+  min-height: 96px;
+  padding: 12px 14px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+select.input {
+  cursor: pointer;
+  background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(50% - 2px), calc(100% - 15px) calc(50% - 2px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  padding-right: 40px;
+}
+
+/* ------------------------------------------------------
+   11. LISTS & GLOBAL ELEMENTS
+   ------------------------------------------------------ */
+ul, ol {
+  list-style: none;
+}
+
+/* ------------------------------------------------------
+   12. ACCESSIBILITY - FOCUS VISIBLE
+   ------------------------------------------------------ */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 2px;
+}
+
+/* Remove default focus for mouse users, keep for keyboard */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible),
+input:focus:not(:focus-visible),
+select:focus:not(:focus-visible),
+textarea:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ------------------------------------------------------
+   13. SMOOTH SCROLLING & REDUCED MOTION
+   ------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms!important;
+    animation-iteration-count: 1!important;
+    transition-duration: 0.01ms!important;
+    scroll-behavior: auto!important;
+  }
+}
+
+/* ------------------------------------------------------
+   14. GLOBAL OVERFLOW SAFETY
+   ------------------------------------------------------ */
+html, body {
+  max-width: 100%;
+}
