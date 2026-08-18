@@ -1,0 +1,524 @@
+/* ==================================================
+   VEXO HVAC - responsive.css
+   Responsive behavior only - Desktop is source of truth
+   Preserves approved desktop design, overrides for smaller screens
+   Uses existing classes from index.html
+   Depends on css/main.css and css/components.css
+   ================================================== */
+
+/* --------------------------------------------------
+   Global overflow safety - always active
+-------------------------------------------------- */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img, video {
+  max-width: 100%;
+}
+
+/* ==================================================
+   1280px - Large Desktop Down / Small Desktop
+================================================== */
+@media (max-width: 1280px) {
+  .grid-3 {
+    gap: 16px;
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 4.8vw, 60px);
+  }
+}
+
+/* ==================================================
+   1200px - Tablet Landscape / Container tightening
+================================================== */
+@media (max-width: 1200px) {
+  .about-grid {
+    gap: 32px;
+  }
+
+  .why-grid {
+    gap: 32px;
+  }
+}
+
+/* ==================================================
+   1024px - Tablet Landscape (Major Stacking Point)
+================================================== */
+@media (max-width: 1024px) {
+  /* Hero becomes single column */
+  .hero-grid,
+  .why-grid,
+  .about-grid,
+  .estimate-wrap,
+  .emergency-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Grids go to 2 columns */
+  .grid-3,
+  .show-grid,
+  .rev-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .areas-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Reorder for better mobile flow */
+  .why-img {
+    order: -1;
+  }
+
+  .about-media {
+    order: -1;
+  }
+
+  /* Float card stays inside viewport */
+  .float-card {
+    left: 12px;
+    bottom: 12px;
+  }
+
+  /* Emergency actions align naturally */
+  .emergency-actions {
+    justify-content: flex-start;
+  }
+}
+
+/* ==================================================
+   820px - Small Tablet Landscape
+================================================== */
+@media (max-width: 820px) {
+  .trustbar-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .trustbar-item {
+    padding: 16px 0;
+  }
+
+  .trustbar-item:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .why-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==================================================
+   768px - Tablet / Mobile Navigation Switch
+================================================== */
+@media (max-width: 768px) {
+  .container {
+    width: min(calc(100% - 20px), var(--max));
+  }
+
+  /* Section spacing reduction */
+  .section {
+    padding: 64px 0;
+  }
+
+  .services {
+    padding-top: 64px;
+  }
+
+  /* Header - switch to hamburger */
+  .topbar .inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 0;
+    gap: 8px;
+  }
+
+  .nav-links,
+  .nav-right .phone,
+  .nav-right .btn-primary {
+    display: none;
+  }
+
+  .hamburger {
+    display: grid;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 12px 0 0;
+  }
+
+  .hero-grid {
+    padding: 20px 0 22px;
+    gap: 24px;
+  }
+
+  .hero-img-wrap {
+    aspect-ratio: 4 / 3;
+    border-radius: 22px;
+  }
+
+  .hero-ctas {
+    gap: 10px;
+  }
+
+  /* Trust bar - already 2 col from 820px */
+  .reviews-head {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .rating-badge {
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  /* Grids to 1 column */
+  .grid-3,
+  .show-grid,
+  .rev-grid,
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .areas-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Emergency */
+  .emergency-actions {
+    justify-content: stretch;
+  }
+
+  .emergency-actions .btn {
+    flex: 1 1 140px;
+  }
+
+  /* About */
+  .about-main-img {
+    border-radius: 20px;
+  }
+
+  .exp-badge {
+    left: -6px;
+    bottom: -12px;
+    padding: 12px 14px;
+  }
+
+  /* Estimate */
+  .estimate-wrap {
+    border-radius: 18px;
+  }
+
+  .estimate-copy {
+    padding: 26px 22px;
+  }
+
+  .estimate-copy h2 {
+    font-size: 28px;
+  }
+
+  .estimate-form {
+    padding: 22px 18px;
+  }
+}
+
+/* ==================================================
+   576px - Large Phone / Phablet
+================================================== */
+@media (max-width: 576px) {
+  .hero-ctas {
+    flex-direction: column;
+  }
+
+  .hero-ctas .btn {
+    width: 100%;
+  }
+
+  .trust-mini {
+    gap: 12px;
+  }
+
+  .areas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mobile .actions {
+    grid-template-columns: 1fr;
+  }
+
+  .form-foot {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .form-foot .btn {
+    width: 100%;
+  }
+
+  .about-actions {
+    flex-direction: column;
+  }
+
+  .about-actions .btn {
+    width: 100%;
+  }
+
+  .emergency-actions {
+    flex-direction: column;
+  }
+
+  .emergency-actions .btn {
+    width: 100%;
+    flex: none;
+  }
+}
+
+/* ==================================================
+   480px - Standard Large Mobile
+================================================== */
+@media (max-width: 480px) {
+  .badge-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .float-card {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    min-width: 0;
+    width: auto;
+    max-width: calc(100% - 20px);
+  }
+
+  .float-badge {
+    right: 10px;
+    top: 10px;
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+
+  .hero-img-wrap {
+    border-radius: 18px;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  .project-body {
+    padding: 14px 16px 16px;
+  }
+
+  .exp-badge {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    width: auto;
+    justify-content: center;
+  }
+
+  .toast {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    max-width: none;
+  }
+}
+
+/* ==================================================
+   430px - Large iPhone / Pro Max
+================================================== */
+@media (max-width: 430px) {
+  .trustbar-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trustbar-item {
+    border-right: 0;
+    border-bottom: 1px solid var(--line-2);
+    padding: 14px 0;
+  }
+
+  .trustbar-item:last-child {
+    border-bottom: 0;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+    line-height: 0.98;
+  }
+
+  .h2,
+  .areas-title,
+  .why-title {
+    font-size: 26px;
+  }
+
+  .areas-desc {
+    max-width: none;
+  }
+
+  .rating-badge {
+    gap: 10px;
+    padding: 10px 12px;
+  }
+}
+
+/* ==================================================
+   390px - Medium Mobile (iPhone 12/13/14)
+================================================== */
+@media (max-width: 390px) {
+  .container {
+    width: min(calc(100% - 16px), var(--max));
+  }
+
+  .brand-name {
+    font-size: 16px;
+  }
+
+  .brand-sub {
+    font-size: 10px;
+  }
+
+  .hero-desc {
+    font-size: 15px;
+  }
+
+  .nav {
+    min-height: 64px;
+  }
+
+  .estimate-copy h2 {
+    font-size: 26px;
+  }
+}
+
+/* ==================================================
+   375px - Standard Mobile
+================================================== */
+@media (max-width: 375px) {
+  .float-card {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+
+  .float-card b {
+    font-size: 16px;
+  }
+
+  .float-card small {
+    font-size: 11px;
+  }
+
+  .float-card-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .why-item {
+    padding: 14px;
+  }
+
+  .rev {
+    padding: 18px;
+  }
+
+  .area {
+    padding: 12px 14px;
+  }
+}
+
+/* ==================================================
+   320px - Small Mobile (iPhone SE, old Android)
+================================================== */
+@media (max-width: 320px) {
+  .container {
+    width: calc(100% - 16px);
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .h2,
+  .why-title,
+  .areas-title {
+    font-size: 24px;
+  }
+
+  .btn {
+    height: 44px;
+    padding: 0 18px;
+    font-size: 14px;
+  }
+
+  .btn-sm {
+    height: 38px;
+  }
+
+  .brand-mark {
+    width: 36px;
+    height: 36px;
+  }
+
+  .phone-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .trust-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .card-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  /* Prevent any absolute element from causing overflow */
+  .float-card,
+  .float-badge,
+  .exp-badge {
+    max-width: calc(100vw - 32px);
+  }
+}
+
+/* ==================================================
+   1920px+ / 1440px+ - Large Screens (preserve premium feel)
+================================================== */
+@media (min-width: 1440px) {
+  .hero h1 {
+    font-size: 68px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .container {
+    width: min(calc(100% - 80px), 1360px);
+  }
+}
