@@ -87,12 +87,13 @@
 }
 .hero-grid-premium{
   display:grid;
-  grid-template-columns:1.08fr 0.92fr;
-  gap:48px;
+  grid-template-columns:1fr;
+  gap:0;
   align-items:center;
+  max-width:720px;
 }
 .hero-content{
-  max-width:640px;
+  max-width:680px;
 }
 .hero-reveal{
   opacity:0;
@@ -172,28 +173,9 @@
   display:grid;place-items:center;
   font-size:11px;font-style:normal;
 }
-.hero-visual{
-  position:relative;
-  isolation:isolate;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-.hero-img-wrap-premium{
-  position:relative;
-  width:100%;
-  aspect-ratio:4/3.2;
-  border-radius:28px;
-  overflow:hidden;
-  background:#0B1A33;
-  border:1px solid rgba(255,255,255,0.12);
-  box-shadow:0 24px 64px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.25);
-}
-.hero-img-wrap-premium .hero-video{
-  position:absolute;
-  inset:0;
-  object-position:center;
-}
+
+
+
 .float-badge{
   position:absolute;
   right:16px;
@@ -213,25 +195,8 @@
   box-shadow:0 8px 24px rgba(0,0,0,0.25);
 }
 .live{width:8px;height:8px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 4px rgba(34,197,94,0.22)}
-.float-card{
-  position:absolute;
-  left:-20px;
-  bottom:24px;
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:14px 16px;
-  box-shadow:0 20px 48px rgba(11,26,51,0.18);
-  display:flex;
-  gap:12px;
-  align-items:center;
-  z-index:3;
-  min-width:240px;
-}
-.float-card-icon{width:42px;height:42px;border-radius:12px;background:var(--primary);color:#fff;display:grid;place-items:center;font-weight:800}
-.float-card .stars{color:#F59E0B;letter-spacing:2px;font-size:14px}
-.float-card b{font-size:18px;line-height:1}
-.float-card small{display:block;color:var(--muted);font-size:12px;font-weight:600;margin-top:2px}
+
+
 
 /* Free Estimate Form Fix */
 .estimate-form .form-grid{
@@ -280,17 +245,9 @@
   .hero-content-layer{
     padding:48px 0 36px;
   }
-  .hero-visual{
-    order:-1;
-  }
-  .hero-img-wrap-premium{
-    aspect-ratio:16/10;
-    max-height:420px;
-  }
-  .float-card{
-    left:12px;
-    bottom:12px;
-  }
+  
+  
+  
 }
 @media (max-width:768px){
   .hero{
@@ -307,16 +264,8 @@
   .hero-grid-premium{
     gap:0;
   }
-  .hero-visual{
-    order:0;
-  }
-  .hero-img-wrap-premium{
-    aspect-ratio:4/3;
-    border-radius:22px;
-    min-height:360px;
-    max-height:520px;
-    width:100%;
-  }
+  
+  
   .hero-content{
     max-width:100%;
     padding:22px 0 0;
@@ -354,17 +303,8 @@
   }
 }
 @media (max-width:480px){
-  .hero-img-wrap-premium{
-    border-radius:18px;
-    min-height:320px;
-  }
-  .float-card{
-    left:10px;
-    right:10px;
-    bottom:10px;
-    min-width:0;
-    width:auto;
-  }
+  
+  
   .float-badge{
     right:10px;
     top:10px;
@@ -490,24 +430,7 @@
         </div>
       </div>
 
-      <div class="hero-visual hero-reveal" data-delay="2">
-        <div class="hero-img-wrap-premium">
-          <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1169&auto=format&fit=crop" aria-hidden="true">
-            <source src="assets/videos/video.mp4" type="video/mp4">
-          </video>
-          <div class="hero-video-overlay" style="background:linear-gradient(180deg, rgba(11,26,51,0) 40%, rgba(11,26,51,0.28) 100%)"></div>
-          <div class="float-badge" style="top:14px; right:14px"><span class="live" aria-hidden="true"></span> Available Now • Dallas</div>
-        </div>
-        <div class="float-card">
-          <div class="float-card-icon" aria-hidden="true">★</div>
-          <div>
-            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <b>4.9/5 Rating</b>
-            <small>500+ Happy Customers in Dallas</small>
-          </div>
-        </div>
       </div>
-    </div>
   </div>
 </section>
 
