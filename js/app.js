@@ -394,6 +394,14 @@ document.addEventListener("DOMContentLoaded", () => {
     let duration = 0;
     let ticking = false;
 
+    const header = document.getElementById("header");
+    const updateHeroStickyOffset = () => {
+      if (!header) return;
+      const rect = header.getBoundingClientRect();
+      const bottom = Math.max(0, Math.round(rect.bottom));
+      hero.style.setProperty("--hero-sticky-top", bottom + "px");
+    };
+
     const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
     const update = () => {
@@ -437,7 +445,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const requestUpdate = () => {
       if (ticking) return;
       ticking = true;
-      window.requestAnimationFrame(update);
+      window.requestAnimationFrame(() => {
+        updateHeroStickyOffset();
+        update();
+      });
     };
 
     const onLoadedMetadata = () => {
@@ -483,6 +494,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
+    updateHeroStickyOffset();
     requestUpdate();
   }
 
