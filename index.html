@@ -21,6 +21,87 @@
 :where(code, pre, kbd, samp) {
   font-family: "Optimistic Mono", ui-monospace, monospace;
 }
+
+/* ==================================================
+   VEXO HERO - TRUE SCROLL-SCRUB VIDEO
+   The page scroll controls video.currentTime.
+   No autoplay, no parallax, no transform movement.
+================================================== */
+.hero-scrub{
+  position:relative;
+  height:320vh;
+  min-height:320vh;
+  overflow:visible;
+  display:block;
+  padding:0;
+}
+
+.hero-scrub .hero-video-wrap{
+  position:sticky;
+  top:0;
+  width:100%;
+  height:100vh;
+  min-height:100vh;
+  overflow:hidden;
+  z-index:0;
+}
+
+.hero-scrub .hero-video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center center;
+  display:block;
+  transform:none !important;
+  will-change:auto;
+}
+
+.hero-scrub .hero-content-layer{
+  position:sticky;
+  top:0;
+  height:100vh;
+  min-height:100vh;
+  width:100%;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  padding:72px 0 56px;
+  pointer-events:none;
+  opacity:var(--hero-content-progress, 0);
+  transition:opacity .18s linear;
+}
+
+.hero-scrub .hero-content-layer .hero-content{
+  pointer-events:auto;
+}
+
+.hero-scrub .hero-content-layer .hero-reveal{
+  opacity:1;
+  transform:none;
+  transition:none;
+}
+
+.hero-scrub .hero-content-layer .hero-grid-premium{
+  width:100%;
+}
+
+@media (max-width:768px){
+  .hero-scrub{
+    height:300vh;
+    min-height:300vh;
+  }
+  .hero-scrub .hero-video-wrap,
+  .hero-scrub .hero-content-layer{
+    height:100svh;
+    min-height:100svh;
+  }
+  .hero-scrub .hero-content-layer{
+    padding:24px 0;
+  }
+}
+
 </style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -388,9 +469,9 @@
 <main>
 
 <!-- HERO - PREMIUM VIDEO FIRST CINEMATIC -->
-<section class="hero" id="home" aria-label="Hero">
+<section class="hero hero-scrub" id="home" aria-label="Hero">
   <div class="hero-video-wrap" aria-hidden="true">
-    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1169&auto=format&fit=crop">
+    <video class="hero-video" muted playsinline preload="auto" poster="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1169&auto=format&fit=crop">
       <source src="assets/videos/video.mp4" type="video/mp4">
     </video>
     <div class="hero-video-overlay"></div>
@@ -783,44 +864,10 @@
 
 <script type="module" src="./js/app.js"></script>
 <script>
-// Premium Hero Reveal - static background video, no parallax, no transform
-(function(){
-  const videos = document.querySelectorAll('.hero-video');
-  const reveals = document.querySelectorAll('.hero-reveal');
-  const hero = document.getElementById('home');
-  if(!hero) return;
-
-  // Autoplay guard for mobile - keep autoplay + muted + loop + playsinline
-  videos.forEach(v=>{
-    try{
-      const p = v.play();
-      if(p && typeof p.catch === 'function') p.catch(()=>{});
-    }catch{}
-  });
-
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reduceMotion){
-    reveals.forEach(el=> el.classList.add('is-visible'));
-    return;
-  }
-
-  // IntersectionObserver for premium staggered reveal - text only, video stays static
-  const observer = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        entry.target.classList.add('is-visible');
-      }
-    });
-  }, {threshold:0.15, rootMargin:'0px 0px -8% 0px'});
-
-  reveals.forEach(el=> observer.observe(el));
-
-  // Immediate first reveal visible
-  setTimeout(()=>{
-    const first = document.querySelector('.hero-reveal[data-delay="1"]');
-    if(first) first.classList.add('is-visible');
-  }, 200);
-})();
+/*
+  Hero scroll-scrub behavior is implemented in ./js/app.js.
+  The hero video is intentionally NOT autoplayed here.
+*/
 </script>
 <script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script></body>
 </html>
