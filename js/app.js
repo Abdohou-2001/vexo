@@ -394,6 +394,12 @@ document.addEventListener("DOMContentLoaded", () => {
     let duration = 0;
     let ticking = false;
 
+    // The source video changes from the full AC shot to an internal close-up
+    // at about 3.4s. Scrub only through the full-AC portion so the hero keeps
+    // the complete subject visible while the user scrolls. After that point
+    // the final full-AC frame is held for the rest of the hero scroll.
+    const SCRUB_END_TIME = 3.35;
+
     const header = document.getElementById("header");
     const updateHeroStickyOffset = () => {
       if (!header) return;
@@ -418,7 +424,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (Number.isFinite(duration) && duration > 0) {
         // requestVideoFrameCallback is not required; setting currentTime
         // directly keeps the scroll position as the video's playhead.
-        const targetTime = progress * duration;
+        const scrubEndTime = Math.min(duration, SCRUB_END_TIME);
+        const targetTime = progress * scrubEndTime;
 
         // Avoid unnecessary seeks on tiny scroll changes.
         if (Math.abs(video.currentTime - targetTime) > 0.01) {
