@@ -9,9 +9,19 @@
 /* --------------------------------------------------
    Global overflow safety - always active
 -------------------------------------------------- */
-html, body {
+html {
   max-width: 100%;
   overflow-x: hidden;
+}
+
+/* overflow-x:clip (not hidden) on body: hidden here would force the UA to
+   compute overflow-y as auto too, turning body into a scroll container and
+   breaking every position:sticky element on the page (the hero scroll-scrub
+   video included). clip keeps the no-horizontal-scroll guarantee without
+   creating a scroll container. */
+body {
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 img, video {
