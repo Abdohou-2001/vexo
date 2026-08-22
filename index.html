@@ -47,15 +47,24 @@
 }
 
 .hero-scrub .hero-video-wrap{
-  position:sticky;
+  position:fixed;
   top:var(--hero-header-h);
   left:0;
   width:100%;
   max-width:none;
   height:calc(100vh - var(--hero-header-h));
   min-height:calc(100vh - var(--hero-header-h));
+  visibility:hidden;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .12s linear;
   overflow:hidden;
   z-index:0;
+}
+
+.hero-scrub .hero-video-wrap.is-active{
+  visibility:visible;
+  opacity:1;
 }
 
 .hero-scrub .hero-video{
@@ -73,7 +82,7 @@
 }
 
 .hero-scrub .hero-content-layer{
-  position:sticky;
+  position:absolute;
   top:var(--hero-header-h);
   height:calc(100vh - var(--hero-header-h));
   min-height:calc(100vh - var(--hero-header-h));
