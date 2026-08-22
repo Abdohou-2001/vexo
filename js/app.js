@@ -394,22 +394,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let duration = 0;
     let ticking = false;
 
-    const header = document.getElementById("header");
-    const videoWrap = hero.querySelector(".hero-video-wrap");
-
-    // The video is a real fixed viewport layer while the hero is active.
-    // Scrolling changes ONLY video.currentTime; it never translates the video.
-    const updateHeroFixedState = () => {
-      if (!header || !videoWrap) return;
-      const headerRect = header.getBoundingClientRect();
-      const headerHeight = Math.max(0, Math.round(headerRect.height));
-      hero.style.setProperty("--hero-header-h", headerHeight + "px");
-
-      const rect = hero.getBoundingClientRect();
-      const active = rect.top <= headerHeight && rect.bottom > headerHeight;
-      videoWrap.classList.toggle("is-active", active);
-    };
-
     const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
     const update = () => {
@@ -426,7 +410,13 @@ document.addEventListener("DOMContentLoaded", () => {
       if (Number.isFinite(duration) && duration > 0) {
         // requestVideoFrameCallback is not required; setting currentTime
         // directly keeps the scroll position as the video's playhead.
-        const targetTime = progress * duration;
+        // Clamp just shy of the true end: seeking to the exact duration can
+        // land on a black/undecoded frame on some mobile browsers (notably
+        // iOS Safari), which would make the AC "disappear" right when the
+        // user finishes scrolling. Holding a fraction of a second earlier
+        // keeps the last, fully-visible AC frame on screen instead.
+        const safeDuration = Math.max(0, duration - 0.15);
+        const targetTime = progress * safeDuration;
 
         // Avoid unnecessary seeks on tiny scroll changes.
         if (Math.abs(video.currentTime - targetTime) > 0.01) {
@@ -453,10 +443,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const requestUpdate = () => {
       if (ticking) return;
       ticking = true;
-      window.requestAnimationFrame(() => {
-        updateHeroFixedState();
-        update();
-      });
+      window.requestAnimationFrame(update);
     };
 
     const onLoadedMetadata = () => {
@@ -502,7 +489,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    updateHeroFixedState();
     requestUpdate();
   }
 
