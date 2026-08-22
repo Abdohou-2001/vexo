@@ -394,18 +394,20 @@ document.addEventListener("DOMContentLoaded", () => {
     let duration = 0;
     let ticking = false;
 
-    // The source video changes from the full AC shot to an internal close-up
-    // at about 3.4s. Scrub only through the full-AC portion so the hero keeps
-    // the complete subject visible while the user scrolls. After that point
-    // the final full-AC frame is held for the rest of the hero scroll.
-    const SCRUB_END_TIME = 3.35;
-
     const header = document.getElementById("header");
-    const updateHeroStickyOffset = () => {
-      if (!header) return;
-      const rect = header.getBoundingClientRect();
-      const bottom = Math.max(0, Math.round(rect.bottom));
-      hero.style.setProperty("--hero-sticky-top", bottom + "px");
+    const videoWrap = hero.querySelector(".hero-video-wrap");
+
+    // The video is a real fixed viewport layer while the hero is active.
+    // Scrolling changes ONLY video.currentTime; it never translates the video.
+    const updateHeroFixedState = () => {
+      if (!header || !videoWrap) return;
+      const headerRect = header.getBoundingClientRect();
+      const headerHeight = Math.max(0, Math.round(headerRect.height));
+      hero.style.setProperty("--hero-header-h", headerHeight + "px");
+
+      const rect = hero.getBoundingClientRect();
+      const active = rect.top <= headerHeight && rect.bottom > headerHeight;
+      videoWrap.classList.toggle("is-active", active);
     };
 
     const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
@@ -424,8 +426,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (Number.isFinite(duration) && duration > 0) {
         // requestVideoFrameCallback is not required; setting currentTime
         // directly keeps the scroll position as the video's playhead.
-        const scrubEndTime = Math.min(duration, SCRUB_END_TIME);
-        const targetTime = progress * scrubEndTime;
+        const targetTime = progress * duration;
 
         // Avoid unnecessary seeks on tiny scroll changes.
         if (Math.abs(video.currentTime - targetTime) > 0.01) {
@@ -453,7 +454,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (ticking) return;
       ticking = true;
       window.requestAnimationFrame(() => {
-        updateHeroStickyOffset();
+        updateHeroFixedState();
         update();
       });
     };
@@ -501,7 +502,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    updateHeroStickyOffset();
+    updateHeroFixedState();
     requestUpdate();
   }
 
